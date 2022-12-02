@@ -21,6 +21,5 @@ for the user to complete. The user has 3 tries to get to the next checkpoint. Ea
 * Api.quotable.io for generating a random quote 
 * Web Audio API for music 
 
-
-
-
+## Wireframe
+![Screen Shot 2022-12-01 at 7 10 42 PM](https://user-images.githubusercontent.com/26070301/205212945-5f1801b4-20a9-453f-92d7-77478b191877.png)
