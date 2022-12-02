@@ -1,0 +1,20 @@
+.quote-display {
+    margin-bottom: 1rem;
+}
+
+.quote-input {
+    outline: none;
+}
+
+.quote-input:focus {
+    border-color: black;
+} 
+
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
+    text-decoration: underline;
+}
