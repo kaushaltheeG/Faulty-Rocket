@@ -1,6 +1,6 @@
 # Faulty-Rocket
 
-Overview
+# Overview
 Faulty Rocket is a typewriting game to help the user improve upon his or her typing skills. 
 A random quote will be generated, and the user will be timed on how fast he or she completes typing the quote.
 The words per minute will be calculated and used to determine the travel distance for the rocket. 
