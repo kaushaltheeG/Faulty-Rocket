@@ -1,3 +1,0 @@
-# Faulty-Rocket
-
-Ovwerview
