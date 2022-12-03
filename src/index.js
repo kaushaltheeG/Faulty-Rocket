@@ -5,10 +5,12 @@ const RANDOM_QUOTE_API_URL = "https://api.quotable.io/random?minLength=100&maxLe
 const quoteDisplay = document.getElementById("quoteDisplay");
 const quoteInput = document.getElementById("quoteInput");
 const timer = document.getElementById("timer");
-const pastTimeEle = document.getElementById('past-time')
-const pastCharCount = document.getElementById('past-charCount')
-const pastErrorCountEle = document.getElementById('error-count')
-const pastWPM = document.getElementById('past-wpm');
+const canvasEl = document.getElementById('rocket-canvas')
+const ctx = canvasEl.getContext("2d");
+
+canvasEl.width = 1000;
+canvasEl.height = 1000; 
+
 
 
 async function getRandomQuote() {
@@ -55,11 +57,9 @@ async function renderNewQuote() {
     charHash[pastRunKey] = charCount;
     pastRunKey++; 
     startTimer();
-    
 }
 
 //to check if your input matches the rendered quote
-
 quoteInput.addEventListener('input', (e) => {
     const quoteSpanArr = quoteDisplay.querySelectorAll(".rendered-quote")
     const inputValArr = quoteInput.value.split('')
@@ -97,7 +97,7 @@ function _catchErors(quoteSpan) {
 
 //timer 
 function startTimer() {
-    console.log(charHash, pastTime, errorCount)
+    // console.log(charHash, pastTime, errorCount)
     
     timer.innerHTML = `00:00`;
     startTime = new Date();
@@ -133,55 +133,16 @@ function renderTimeAsClock(time) {
     }
 }
 
-/* Calculating the Net wpm: 
-    time: pastTime,
-    errors: , 
-    quote character count: 
-
-    
-
-*/
 function pastRunData(character, time, errors) {
     const pastRun = new TypeWritingConsole(character, time, errors);
-    console.log(pastRun)
-    _pastCharCount(pastRun.characterCount);
-    _pastTimeCal(pastRun.time)
-    _pastErrorCount(pastRun.errors)
     let wpm = pastRun.calculateWPM();
-    _pastWPM(wpm);
+    console.log(pastRun)
+    pastRun._pastCharCount(pastRun.characterCount);
+    pastRun._pastTimeCal(pastRun.time)
+    pastRun._pastErrorCount(pastRun.errors)
+    pastRun._pastWPM(wpm);
     return pastRun;
 }
-function _pastTimeCal(time) {
-    if (time) {
-        pastTimeEle.innerHTML = ""
-        const span = document.createElement("span");
-        span.innerHTML = `Past Run Time: ${time}`;
-        pastTimeEle.appendChild(span);
-    }
-}
-
-function _pastCharCount(count) {
-    pastCharCount.innerHTML = "";
-    const span = document.createElement("span");
-    span.innerHTML = `Past char count: ${count}`;
-    pastCharCount.appendChild(span);
-}
-
-function _pastErrorCount(errorCount) {
-    pastErrorCountEle.innerHTML = "";
-    const span = document.createElement("span");
-    span.innerHTML = `Past error count: ${errorCount}`;
-    pastErrorCountEle.appendChild(span);
-}
-
-function _pastWPM(wpm) {
-    pastWPM.innerHTML = "";
-    const span = document.createElement('span');
-    span.innerHTML = `Past run's WPM: ${wpm}`;
-    pastWPM.appendChild(span);
-}
-
-
 
 
 

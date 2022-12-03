@@ -27,4 +27,39 @@ export default class TypeWritingConsole {
         let netWPM = Math.floor(Math.abs(words - this.errors) / this.adjustTime())
         return netWPM;
     }
+     _pastTimeCal(time) {
+        if (time) {
+            const pastTimeEle = document.getElementById('past-time')
+            pastTimeEle.innerHTML = ""
+            const span = document.createElement("span");
+            span.innerHTML = `Past Run Time: ${time}`;
+            pastTimeEle.appendChild(span);
+        }
+    }
+
+     _pastCharCount(count) {
+        const pastCharCount = document.getElementById('past-charCount')
+        pastCharCount.innerHTML = "";
+        const span = document.createElement("span");
+        span.innerHTML = `Past char count: ${count}`;
+        pastCharCount.appendChild(span);
+    }
+
+     _pastErrorCount(errorCount) {
+        const pastErrorCountEle = document.getElementById('error-count')
+        pastErrorCountEle.innerHTML = "";
+        const span = document.createElement("span");
+        span.innerHTML = `Past error count: ${errorCount}`;
+        pastErrorCountEle.appendChild(span);
+    }
+
+     _pastWPM(wpm) {
+        const pastWPM = document.getElementById('past-wpm');
+        pastWPM.innerHTML = "";
+        const span = document.createElement('span');
+        span.innerHTML = `Past run's WPM: ${wpm}`;
+        pastWPM.appendChild(span);
+    }
+
+    
 }

@@ -21,3 +21,13 @@
   color: red;
   text-decoration: underline;
 }
+
+.canvas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h4 {
+  background-color: aqua;
+}
