@@ -1,25 +1,34 @@
 import TypeWritingConsole from "./typewriting-console";
+import Quote from "./quote";
+import Level from "./level";
+
 export default class Game {
-    constructor(ctx, typeWC) {
+    constructor(ctx, level) {
         this.ctx = ctx
+        this.level = new Level(level, this.ctx); 
         this.x = 0;
         this.y = 0;
-        this.i = new Image();
-        this.typeWC = typeWC;
-        this.i.src = "../../assests/stars-test.png";
-      
+        this.quote = new Quote;
+        // this.quote = new Quote();
+        // this.i = new Image();
+        // this.typeWC = typeWC;
+        // this.i.src = "../../assests/stars-test.png";
+        this.animate()
+        // this.start();
     }
 
     animate() {
-        console.log(this.i);
+        // console.log(this.i);
         this.ctx.save();
         this.ctx.clearRect(0,0, 10, 10);
         this.draw()
-        clearInterval(this.renderBackground())
-        this.renderBackground()
-        this.backgroundMove();
+        // clearInterval(this.renderBackground())
+        // this.renderBackground()
+        // this.backgroundMove();
         this.ctx.restore();
     }
+
+    
 
     draw() {
         this.ctx.beginPath();

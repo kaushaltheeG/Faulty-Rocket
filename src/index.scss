@@ -25,10 +25,31 @@
     align-items: center;
     margin-top: auto;
 }
-#rocket-canvas {
-    background-color: grey;
-}
 
 .app {
     display: flex;
+}
+
+.level-zero {
+    background-color: beige;
+}
+
+.level-one {
+    background-color: lightblue;
+} 
+
+.level-two {
+    background-color: aqua;
+}
+
+.level-three {
+    background-color: blue;
+}
+
+.level-four {
+    background-color: darkblue;
+}
+
+.level-five {
+    background-color: black;
 }

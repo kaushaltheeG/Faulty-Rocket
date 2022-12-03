@@ -1,24 +1,28 @@
 
 
-const Timer = {
+export default class Timer {
+    constructor() {
+        this.startTime = new Date();
+        this.pastTime;
+    }
     
-     startTimer() {
+    startTimer() {
         // console.log(charHash, pastTime, errorCount)
         const timer = document.getElementById("timer");
         timer.innerHTML = `00:00`;
-        startTime = new Date();
+        // startTime = new Date();
         setInterval(() => {
-            let currentTime = getTime();
-            timer.innerHTML = renderTimeAsClock(currentTime);
-            pastTime = timer.innerHTML;
+            let currentTime = this.getTime();
+            timer.innerHTML = this.renderTimeAsClock(currentTime);
+            this.pastTime = timer.innerHTML;
         }, 1000);
         // let pastRunInstance = pastRunData(charCount, pastTime, errorCount)
         // console.log(pastRunInstance)
-    },
+    }
 
     getTime() {
-        return Math.floor((new Date() - startTime) / 1000)
-    },
+        return Math.floor((new Date() - this.startTime) / 1000)
+    }
 
     renderTimeAsClock(time) {
         if (time < 60) {
@@ -39,5 +43,3 @@ const Timer = {
         }
     }
 }
-
-module.exports = Timer;

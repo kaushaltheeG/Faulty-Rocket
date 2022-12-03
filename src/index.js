@@ -10,7 +10,7 @@ const ctx = canvasEl.getContext("2d");
 // document.body.appendChild(quoteInput);
 canvasEl.width = 500;
 canvasEl.height = 500; 
-// let game = new Game(ctx, 50000);
+let game = new Game(ctx, 0);
 // game.animate();
 // game.draw();
 
@@ -37,40 +37,40 @@ async function getRandomQuote() {
 let charCount; 
 let charHash = {}, errorArr = [];
 let pastRunKey = 1;
-let errorCount, startTime, pastTime;
+let errorCount = 0, startTime, pastTime;
 
-async function renderNewQuote() {
-    let pastRunInstance;
-    if (pastTime) {
-        pastRunInstance = pastRunData(charHash[pastRunKey - 1], pastTime, errorCount)
-        console.log(`past run data: charCount ${pastRunInstance.characterCount} time: ${pastRunInstance.time} errors: ${pastRunInstance.errors}`)
-        let game = new Game(ctx, pastRunInstance.adjTime);
-        // game.typeWC = pastRunInstance.adjTime;
-        game.animate();
-    }
-    errorCount = 0;
-    errorArr = []
-    const quote = await getRandomQuote();
-    quoteDisplay.innerHTML = "";
-    quoteInput.value = null;
-    charCount = 0;
-    quote.split('').forEach(char => {
-        charCount++; 
-        let span = document.createElement("span");
-        span.className = 'rendered-quote';
-        span.innerHTML = char;
-        quoteDisplay.appendChild(span);
-    })
-    charHash[pastRunKey] = charCount;
-    pastRunKey++; 
-    startTimer();
-}
+// async function renderNewQuote() {
+//     let pastRunInstance;
+//     if (pastTime) {
+//         pastRunInstance = pastRunData(charHash[pastRunKey - 1], pastTime, errorCount)
+//         console.log(`past run data: charCount ${pastRunInstance.characterCount} time: ${pastRunInstance.time} errors: ${pastRunInstance.errors}`)
+//         // let game = new Game(ctx, pastRunInstance.adjTime);
+//         // game.typeWC = pastRunInstance.adjTime;
+//         // game.animate();
+//     }
+//     errorCount = 0;
+//     errorArr = []
+//     const quote = await getRandomQuote();
+//     quoteDisplay.innerHTML = "";
+//     quoteInput.value = null;
+//     charCount = 0;
+//     quote.split('').forEach(char => {
+//         charCount++; 
+//         let span = document.createElement("span");
+//         span.className = 'rendered-quote';
+//         span.innerHTML = char;
+//         quoteDisplay.appendChild(span);
+//     })
+//     charHash[pastRunKey] = charCount;
+//     pastRunKey++; 
+//     startTimer();
+// }
 
 //to check if your input matches the rendered quote
 quoteInput.addEventListener('input', (e) => {
     const quoteSpanArr = quoteDisplay.querySelectorAll(".rendered-quote")
     const inputValArr = quoteInput.value.split('')
-    let finished = true, caughtErrors; 
+    let finished = true, caughtErrors = 0; 
     quoteSpanArr.forEach((charSpan, i) => {
         const inputChar = inputValArr[i];
         if (inputChar == null) {
@@ -90,9 +90,13 @@ quoteInput.addEventListener('input', (e) => {
              
         }
     })
-    console.log('error arr: ' + errorArr)
+    // console.log(errorCount)
     
-    if (finished) renderNewQuote();
+    if (finished) {
+        console.log(game.quote.charCount, game.quote.timer.pastTime, errorCount)
+        const twc = new TypeWritingConsole(game.quote.charCount, game.quote.timer.pastTime, errorCount, ctx)
+        console.log(twc)
+    }
 })
 
 function _catchErors(quoteSpan) {
@@ -154,7 +158,7 @@ function pastRunData(character, time, errors) {
 
 
 
-renderNewQuote();
+// renderNewQuote();
 
 
 

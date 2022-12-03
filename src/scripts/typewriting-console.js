@@ -1,19 +1,20 @@
+import Rocket from "./rocket";
 
 
 export default class TypeWritingConsole {
 
-    constructor(characterCount, time, errors) {
+    constructor(characterCount, time, errors, ctx) {
         console.log('hi from twc')
         this.characterCount = characterCount;
         this.time = time;   
         this.errors = errors; 
+        this.ctx = ctx; 
         this.minutes =  parseInt(this.time.slice(0,2));
         this.seconds = parseInt(this.time.slice(3));
-        this.adjTime = function adjustTime() {
-            let adjSec = this.seconds / 60;
-            return this.minutes + adjSec;
-        }
-        console.log(this.adjTime);
+        this.adjTime = this.adjustTime()
+        this.wpm = this.calculateWPM();
+        this.printResults();
+        this.rocket = new Rocket(this.wpm, this.ctx);
     }
 
     adjustTime() {
@@ -29,10 +30,17 @@ export default class TypeWritingConsole {
                 = [(totalChars/5) - errors] / time(min)
         */
         let words = (this.characterCount / 5)
-        let netWPM = Math.floor(Math.abs(words - this.errors) / this.adjustTime())
+        let netWPM = Math.floor(Math.abs(words - this.errors) / this.adjTime)
         return netWPM;
     }
-     _pastTimeCal(time) {
+
+    printResults() {
+        this._pastTimeCal(this.time);
+        this._pastCharCount(this.characterCount);
+        this._pastErrorCount(this.errors);
+        this._pastWPM(this.wpm);
+    }
+    _pastTimeCal(time) {
         if (time) {
             const pastTimeEle = document.getElementById('past-time')
             pastTimeEle.innerHTML = ""
@@ -65,6 +73,8 @@ export default class TypeWritingConsole {
         span.innerHTML = `Past run's WPM: ${wpm}`;
         pastWPM.appendChild(span);
     }
+
+
 
     
 }
