@@ -8,7 +8,7 @@ const timer = document.getElementById("timer");
 const pastTimeEle = document.getElementById('past-time')
 const pastCharCount = document.getElementById('past-charCount')
 const pastErrorCountEle = document.getElementById('error-count')
-
+const pastWPM = document.getElementById('past-wpm');
 
 
 async function getRandomQuote() {
@@ -83,8 +83,8 @@ quoteInput.addEventListener('input', (e) => {
              
         }
     })
-    console.log(errorArr)
-    console.log(errorCount);
+    console.log('error arr: ' + errorArr)
+    
     if (finished) renderNewQuote();
 })
 
@@ -147,6 +147,8 @@ function pastRunData(character, time, errors) {
     _pastCharCount(pastRun.characterCount);
     _pastTimeCal(pastRun.time)
     _pastErrorCount(pastRun.errors)
+    let wpm = pastRun.calculateWPM();
+    _pastWPM(wpm);
     return pastRun;
 }
 function _pastTimeCal(time) {
@@ -170,6 +172,13 @@ function _pastErrorCount(errorCount) {
     const span = document.createElement("span");
     span.innerHTML = `Past error count: ${errorCount}`;
     pastErrorCountEle.appendChild(span);
+}
+
+function _pastWPM(wpm) {
+    pastWPM.innerHTML = "";
+    const span = document.createElement('span');
+    span.innerHTML = `Past run's WPM: ${wpm}`;
+    pastWPM.appendChild(span);
 }
 
 
