@@ -26,8 +26,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: auto;
 }
 
-h4 {
-  background-color: aqua;
+#rocket-canvas {
+  background-color: grey;
+}
+
+.app {
+  display: flex;
 }

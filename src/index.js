@@ -1,15 +1,20 @@
 import TypeWritingConsole from "./scripts/typewriting-console";
-
+import Game from "./scripts/game";
 
 const RANDOM_QUOTE_API_URL = "https://api.quotable.io/random?minLength=100&maxLength=450";
 const quoteDisplay = document.getElementById("quoteDisplay");
 const quoteInput = document.getElementById("quoteInput");
 const timer = document.getElementById("timer");
-const canvasEl = document.getElementById('rocket-canvas')
+const canvasEl = document.getElementById("rocket-canvas");
 const ctx = canvasEl.getContext("2d");
+// document.body.appendChild(quoteInput);
+canvasEl.width = 500;
+canvasEl.height = 500; 
+// let game = new Game(ctx, 50000);
+// game.animate();
+// game.draw();
 
-canvasEl.width = 1000;
-canvasEl.height = 1000; 
+
 
 
 
@@ -39,7 +44,9 @@ async function renderNewQuote() {
     if (pastTime) {
         pastRunInstance = pastRunData(charHash[pastRunKey - 1], pastTime, errorCount)
         console.log(`past run data: charCount ${pastRunInstance.characterCount} time: ${pastRunInstance.time} errors: ${pastRunInstance.errors}`)
-
+        let game = new Game(ctx, pastRunInstance.adjTime);
+        // game.typeWC = pastRunInstance.adjTime;
+        game.animate();
     }
     errorCount = 0;
     errorArr = []
@@ -141,6 +148,7 @@ function pastRunData(character, time, errors) {
     pastRun._pastTimeCal(pastRun.time)
     pastRun._pastErrorCount(pastRun.errors)
     pastRun._pastWPM(wpm);
+    ctx.fillText(wpm, 100, 100)
     return pastRun;
 }
 

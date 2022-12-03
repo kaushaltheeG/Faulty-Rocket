@@ -6,26 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./src/styles/reset.css" type="text/css" />
     <link rel="stylesheet" href="./dist/main.css" type="text/css" />
+
     <link rel="stylesheet" href="./src/index.scss" type="text/css" />
     <script src="./dist/main.js" type="text/javascript" defer></script>
     <title>Faulty Rocket</title>
 </head>
 <body>
-    <div class="timer" id="timer"></div>
-    <div>
-        <div class="wpm" id="past-charCount"></div>
-        <div class="wpm" id="past-time"></div>
-        <div class="wpm" id="error-count"></div>
-        <div class="wpm" id="past-wpm"></div>
+    <div class="app">
+        <div class="timer" id="timer"></div>
+        <div>
+            <div class="wpm" id="past-charCount"></div>
+            <div class="wpm" id="past-time"></div>
+            <div class="wpm" id="error-count"></div>
+            <div class="wpm" id="past-wpm"></div>
+        </div>
+        <div class="console-interface">
+            <div class="quote-display" id="quoteDisplay"></div>
+            <textarea name="" class="quote-input" id="quoteInput" cols="30" rows="10" autofocus></textarea>
+        </div>
+        <div class="canvas">
+            <canvas id="rocket-canvas"></canvas>
+        
+        </div>
     </div>
-    <div class="console-interface">
-        <div class="quote-display" id="quoteDisplay"></div>
-        <textarea name="" class="quote-input" id="quoteInput" cols="30" rows="10" autofocus></textarea>
-    </div>
-    <div class="canvas"> 
-        <h4>Canvas</h4>
-        <canvas id="rocket-canvas"></canvas>
-    </div>
-    
 </body>
 </html> 
