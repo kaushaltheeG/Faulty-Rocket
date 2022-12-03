@@ -21,7 +21,7 @@ export default class Game {
         // console.log(this.i);
         this.ctx.save();
         this.ctx.clearRect(0,0, 10, 10);
-        this.draw()
+        // this.draw()
         // clearInterval(this.renderBackground())
         // this.renderBackground()
         // this.backgroundMove();
