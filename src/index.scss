@@ -1,13 +1,21 @@
 .quote-display {
     margin-bottom: 1rem;
+    // background-color: rbg(38, 110, 90);
 }
 
 .quote-input {
     outline: none;
 }
 
+#timer {
+    
+}
+
 .quote-input:focus {
     border-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 } 
 
 .correct {
@@ -28,6 +36,27 @@
 
 .app {
     display: flex;
+    justify-content: space-evenly ;
+}
+
+#control-center {
+    // background-color: rgb(66, 66, 66);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+div > #console-interface {
+    background-color: rbg(38,110,90);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    border-radius: .5rem;
+    width: 200px;
+    max-width: 90%;
 }
 
 .level-zero {

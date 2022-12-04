@@ -4,7 +4,7 @@ import Game from "./scripts/game";
 const RANDOM_QUOTE_API_URL = "https://api.quotable.io/random?minLength=100&maxLength=450";
 const quoteDisplay = document.getElementById("quoteDisplay");
 const quoteInput = document.getElementById("quoteInput");
-const consoleInterfaceDiv = document.getElementById("console-interface");
+const consoleInterfaceDiv = document.querySelector("#console-interface");
 const canvasEl = document.getElementById("rocket-canvas");
 const ctx = canvasEl.getContext("2d");
 let animatation; 
@@ -52,16 +52,14 @@ quoteInput.addEventListener('input', (e) => {
     if (finished) {
         const twc = new TypeWritingConsole(game.quote.charCount, game.quote.timer.pastTime, errorCount, ctx, game.level.passingWpm)
         twc.rocket.animate(() => {
-            console.log('passed');
             if (twc.rocket.passedLevel) {
                 game.newLevel();
             } else {
                 game.failedLevel();
             }
-            console.log(game.strikes)
-            game.gameOver();
         });
     }
+    game.gameOver();
 })
 
 function _catchErors(quoteSpan) {

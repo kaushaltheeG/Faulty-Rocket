@@ -21,15 +21,19 @@ export default class Level {
                 break;
             case 1: 
                 canvas.className = 'level-one'
+                this.passingWpm = 35;
                 break;
             case 2: 
                 canvas.className = 'level-two'
+                this.passingWpm = 50; 
                 break;
             case 3:
                 canvas.className = 'level-three'
+                this.passingWpm = 75; 
                 break;
             case 4: 
                 canvas.className = 'level-four'
+                this.passingWpm = 100; 
                 break;
             case 5:
                 canvas.className = 'level-five'

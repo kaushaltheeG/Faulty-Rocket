@@ -33,9 +33,8 @@ export default class Rocket {
         this.velocity.add(this.acceleration);
         this.pos.add(this.velocity);
         this.ctx.fillStyle = this.color;
-        console.log('running');
         this.ctx.fillRect(this.pos.x, this.pos.y, this.width, this.height)
-        if (this.inbounds(this.pos.x, this.pos.y) && this.pos.y > this.yAxisStopPos ) {
+        if (this.inbounds(this.pos.x, this.pos.y) && this.pos.y >= this.yAxisStopPos ) {
             requestAnimationFrame(this.animate.bind(this, callback));
         } else {
             callback();
@@ -55,7 +54,7 @@ export default class Rocket {
             this.accelerationDeltaY = -.15
             this.yAxisStopPos = (this.height + 2) * -1;
             this.passedLevel = true;
-        } else if (this.wpm < this.passingWpm && this.wpm > (this.passingWpm/2)) {
+        } else if (this.wpm < this.passingWpm && this.wpm >= (this.passingWpm/2)) {
             this.accelerationDeltaY = -.015;
             this.yAxisStopPos = 137.5;
             this.passedLevel = false;

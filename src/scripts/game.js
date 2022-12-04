@@ -22,8 +22,12 @@ export default class Game {
     gameOver() {
         if (this.strikes >= 3) {
             alert('Game Over');
+        } else if (this.strikes < 3 && this.level.state === 5) {
+            alert('Winner!!!!')
         }
     }
+
+    
 
     
     failedLevel() {
@@ -38,6 +42,7 @@ export default class Game {
     newLevel() {
         this.level.state++;
         this.quote.timer.endTimer();
+        this.strikes = 0; 
         this.quote = new Quote;
         this.level.renderLevel(this.level.state)
         this.ctx.fillStyle = 'red';
