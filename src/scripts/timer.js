@@ -4,6 +4,7 @@ export default class Timer {
     constructor() {
         this.startTime = new Date();
         this.pastTime;
+        
     }
     
     startTimer() {
@@ -11,7 +12,7 @@ export default class Timer {
         const timer = document.getElementById("timer");
         timer.innerHTML = `00:00`;
         // startTime = new Date();
-        setInterval(() => {
+        this.startTimeInterval = setInterval(() => {
             let currentTime = this.getTime();
             timer.innerHTML = this.renderTimeAsClock(currentTime);
             this.pastTime = timer.innerHTML;
@@ -41,5 +42,9 @@ export default class Timer {
                 return `${min}:${seconds}`
             }
         }
+    }
+
+    endTimer() {
+        clearInterval(this.startTimeInterval);
     }
 }

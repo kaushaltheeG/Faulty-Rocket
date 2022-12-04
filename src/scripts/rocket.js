@@ -4,24 +4,24 @@ export default class Rocket {
     constructor(wpm, ctx) {
         this.wpm = wpm; 
         this.ctx = ctx; 
-        this.color = "cyan";
+        this.color = "red";
         this.width = 10;
         this.height = 20; 
         this.canvas = document.getElementById("rocket-canvas")
         this.acceleration = new Vector(0, -.15)
         this.reset();
-        // this.animate();
     }
 
     animate() {
-        // console.log('in animate');
+        console.log(this.canvas.style.backgroundColor);
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
         this.velocity.add(this.acceleration);
         this.pos.add(this.velocity);
-        if (!this.inbounds(this.pos.x, this.pos.y)) {
-            this.reset();
-        }
         this.ctx.fillStyle = this.color;
         this.ctx.fillRect(this.pos.x, this.pos.y, this.width, this.height)
+        if (this.inbounds(this.pos.x, this.pos.y)) {
+            requestAnimationFrame(this.animate.bind(this));
+        }
     }
 
     inbounds(x, y) {
@@ -31,6 +31,8 @@ export default class Rocket {
             return true; 
         }
     }
+
+    
 
     reset() {
         this.pos = new Vector((this.canvas.width - this.width) / 2, (this.canvas.height - this.height))

@@ -17,10 +17,18 @@ export default class Game {
         // this.start();
     }
 
+    newLevel() {
+        this.level.state++;
+        this.quote.timer.endTimer();
+        this.quote = new Quote;
+        this.level.renderLevel(this.level.state)
+        
+    }
+
     animate() {
         // console.log(this.i);
         this.ctx.save();
-        this.ctx.clearRect(0,0, 10, 10);
+        // this.ctx.clearRect(0,0, 10, 10);
         // this.draw()
         // clearInterval(this.renderBackground())
         // this.renderBackground()
@@ -30,11 +38,7 @@ export default class Game {
 
     
 
-    draw() {
-        this.ctx.beginPath();
-        this.ctx.arc(250, 400, 50, 0, 2 * Math.PI);
-        this.ctx.fill();
-    }
+
 
     renderBackground() {
         let that = this;

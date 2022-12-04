@@ -35,6 +35,7 @@ export default class Quote {
         // }
         // errorCount = 0;
         // errorArr = [];
+
         const quote = await this.getRandomQuote();
         console.log(quote)
         quoteDisplay.innerHTML = "";
@@ -50,6 +51,7 @@ export default class Quote {
         // charHash[pastRunKey] = charCount;
         // pastRunKey++;
         // console.log(timer);
+        
         this.timer.startTimer();
     }
 }
