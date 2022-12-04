@@ -27,14 +27,6 @@ export default class Quote {
     }
 
     async renderNewQuote() {
-        // let pastRunInstance;
-        // if (pastTime) {
-        //     pastRunInstance = pastRunData(charHash[pastRunKey - 1], pastTime, errorCount)
-        //     console.log(`past run data: charCount ${pastRunInstance.characterCount} time: ${pastRunInstance.time} errors: ${pastRunInstance.errors}`)
-
-        // }
-        // errorCount = 0;
-        // errorArr = [];
 
         const quote = await this.getRandomQuote();
         console.log(quote)

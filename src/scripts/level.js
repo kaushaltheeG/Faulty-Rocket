@@ -5,7 +5,7 @@ export default class Level {
         
         this.state = state;
         this.ctx = ctx;
-        this.passingSpeed; 
+        this.passingWpm; 
         this.renderLevel(this.state);
     }
 
@@ -17,7 +17,7 @@ export default class Level {
         switch(state) {
             case 0: 
                 canvas.className = 'level-zero'
-                // this.passingSpeed = 20; 
+                this.passingWpm = 20;
                 break;
             case 1: 
                 canvas.className = 'level-one'

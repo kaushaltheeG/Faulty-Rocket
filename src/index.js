@@ -10,9 +10,12 @@ const ctx = canvasEl.getContext("2d");
 let animatation; 
 
 canvasEl.width = 500;
-canvasEl.height = 500; 
-
-let game = new Game(ctx, 0);
+canvasEl.height = 750; 
+// canvasEl.style = 'border: 1px solid #000000';
+// ctx.beginPath();
+// ctx.rect(100, 675, 300, 75);
+// ctx.stroke();
+let game = new Game(ctx, 0, canvasEl);
 
 let errorArr = [], errorCount = 0;
 quoteInput.addEventListener('input', (e) => {
@@ -40,9 +43,19 @@ quoteInput.addEventListener('input', (e) => {
     })
     
     if (finished) {
-        const twc = new TypeWritingConsole(game.quote.charCount, game.quote.timer.pastTime, errorCount, ctx)
-        twc.rocket.animate();
-        game.newLevel();
+        const twc = new TypeWritingConsole(game.quote.charCount, game.quote.timer.pastTime, errorCount, ctx, game.level.passingWpm)
+        twc.rocket.animate(() => {
+            console.log('passed');
+            if (twc.rocket.passedLevel) {
+                
+                game.newLevel();
+            } else {
+                game.failedLevel();
+            }
+        });
+            
+        
+
         console.log(canvasEl.style.backgroundColor)
     }
 })
