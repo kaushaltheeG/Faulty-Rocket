@@ -3,7 +3,7 @@ import Game from "./game";
 
 export default class Rocket {
     constructor(wpm, ctx, passingWpm) {
-        this.wpm = 10; 
+        this.wpm = wpm; 
         this.ctx = ctx; 
         this.passingWpm = passingWpm;
         this.color = "red";
@@ -40,7 +40,6 @@ export default class Rocket {
         } else {
             callback();
         }
-        
     }
 
     inbounds(x, y) {
@@ -50,9 +49,6 @@ export default class Rocket {
             return true; 
         }
     }
-
-    
-
 
     totalDistanceAndAcceleration() {
         if (this.wpm >= this.passingWpm) {

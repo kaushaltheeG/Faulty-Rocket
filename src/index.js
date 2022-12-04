@@ -4,7 +4,7 @@ import Game from "./scripts/game";
 const RANDOM_QUOTE_API_URL = "https://api.quotable.io/random?minLength=100&maxLength=450";
 const quoteDisplay = document.getElementById("quoteDisplay");
 const quoteInput = document.getElementById("quoteInput");
-const timer = document.getElementById("timer");
+const consoleInterfaceDiv = document.getElementById("console-interface");
 const canvasEl = document.getElementById("rocket-canvas");
 const ctx = canvasEl.getContext("2d");
 let animatation; 
@@ -15,7 +15,14 @@ canvasEl.height = 750;
 // ctx.beginPath();
 // ctx.rect(100, 675, 300, 75);
 // ctx.stroke();
-let game = new Game(ctx, 0, canvasEl);
+let game; 
+let newGame = document.createElement('button');
+newGame.innerHTML = 'New Game';
+consoleInterfaceDiv.appendChild(newGame)
+newGame.addEventListener('click', (e)=> {
+    if (game) game.quote.timer.endTimer();
+    game = new Game(ctx, 0, canvasEl);
+})
 
 let errorArr = [], errorCount = 0;
 quoteInput.addEventListener('input', (e) => {
@@ -47,16 +54,13 @@ quoteInput.addEventListener('input', (e) => {
         twc.rocket.animate(() => {
             console.log('passed');
             if (twc.rocket.passedLevel) {
-                
                 game.newLevel();
             } else {
                 game.failedLevel();
             }
+            console.log(game.strikes)
+            game.gameOver();
         });
-            
-        
-
-        console.log(canvasEl.style.backgroundColor)
     }
 })
 

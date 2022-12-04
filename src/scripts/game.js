@@ -10,6 +10,7 @@ export default class Game {
         this.x = 0;
         this.y = 0;
         this.quote = new Quote;
+        this.strikes = 0;
         // this.quote = new Quote();
         // this.i = new Image();
         // this.typeWC = typeWC;
@@ -18,15 +19,20 @@ export default class Game {
         // this.start();
     }
 
-    
+    gameOver() {
+        if (this.strikes >= 3) {
+            alert('Game Over');
+        }
+    }
 
+    
     failedLevel() {
         console.log('in failed');
-
+        this.strikes++; 
         this.quote.timer.endTimer();
         this.quote = new Quote();
-        // this.level.renderLevel(this.level.state)
-        // this.animate();
+        this.animate();
+
     }
 
     newLevel() {
@@ -34,10 +40,13 @@ export default class Game {
         this.quote.timer.endTimer();
         this.quote = new Quote;
         this.level.renderLevel(this.level.state)
+        this.ctx.fillStyle = 'red';
+        this.ctx.fillRect(225, 600, 50, 75)
     }
 
     animate() {
         // console.log(this.i);
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
         this.ctx.save();
         this.canvas.style = 'border: 1px solid #000000';
         this.ctx.beginPath();
@@ -55,7 +64,6 @@ export default class Game {
         this.ctx.restore();
     }
 
-    
 
 
 
