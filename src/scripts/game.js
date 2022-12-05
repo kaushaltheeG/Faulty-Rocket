@@ -29,8 +29,6 @@ export default class Game {
     }
 
     
-
-    
     failedLevel() {
         console.log('in failed');
         this.strikes++; 

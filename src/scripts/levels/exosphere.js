@@ -1,3 +1,6 @@
+
+
+
 export default class Exosphere {
     constructor(ctx, canvas) {
         this.ctx = ctx;
@@ -26,6 +29,8 @@ export default class Exosphere {
         this.twinPlanet.src = './assests/exosphere/layers/parallax-space-far-planets.png'
         this.bigPlanet.src = './assests/exosphere/layers/parallax-space-big-planet.png'
     }
+
+    
 
 
 }
