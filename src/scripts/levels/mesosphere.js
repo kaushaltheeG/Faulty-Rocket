@@ -1,3 +1,5 @@
+import MovingObjects from "./movingObjects";
+
 const ROCKET_INIT = {
     SX: 0,
     SY: 0,
@@ -16,6 +18,17 @@ const PLATFORM = {
     DHEIGHT: 400
 }
 
+const METEORITE = {
+    SX: 562,
+    SY: 600,
+    SWIDTH: 1500,
+    SHEIGHT: 1200,
+    DX: 300,
+    DY: 0,
+    DWIDTH: 300,
+    DHEIGHT: 300
+}
+
 export default class Mesosphere {
     constructor(ctx, canvas, rocket, platform) {
         this.ctx = ctx;
@@ -23,11 +36,6 @@ export default class Mesosphere {
         this.rocket = rocket;
         this.platform = platform;
         this.background = new Image();
-        this.meteorite1 = new Image();
-        this.meteorite2 = new Image();
-        this.meteorite3 = new Image();
-        this.meteorite4 = new Image();
-        this.meteorite5 = new Image();
         this.assignSrcs();
         this.animate();
     }
@@ -36,6 +44,10 @@ export default class Mesosphere {
         //have the meteorites entering the exiting the frame 
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
         this.ctx.drawImage(this.background, 0, 0, this.canvas.width, this.canvas.height);
+        this.meteorites.forEach(meteorite => {
+            meteorite.draw(this.ctx);
+            meteorite.moveDown();
+        })
         this.ctx.drawImage(this.platform, PLATFORM.DX, PLATFORM.DY, PLATFORM.DWIDTH, PLATFORM.DHEIGHT)
         this.ctx.drawImage(this.rocket, ROCKET_INIT.SX, ROCKET_INIT.SY,
             ROCKET_INIT.SWIDTH, ROCKET_INIT.SHEIGHT,
@@ -46,14 +58,31 @@ export default class Mesosphere {
 
     assignSrcs() {
         this.background.src = './assests/mesosphere/mesos_background.png'
-        this.meteorite1.src = './assests/mesosphere/meteorite_1.png'
-        this.meteorite2.src = './assests/mesosphere/meteorite_2.png'
-        this.meteorite3.src = './assests/mesosphere/meteorite_3.png'
-        this.meteorite4.src = './assests/mesosphere/meteorite_4.png'
-        this.meteorite5.src = './assests/mesosphere/meteorite_5.png'
+        this.meteorites = this.generateMeteorite();
     }
 
-    
+    generateMeteorite() {
+        let meteorites = [];
+        for (let i=1; i < 10; i++) {
+            let src = Math.floor(Math.random() * 5)
+            meteorites.push(new MovingObjects({
+                pos: this.randomPos(),
+                width: 300,
+                height: 300,
+                color: 'black',
+                canvas: this.canvas,
+                src: `./assests/mesosphere/meteorite_${src}.png`
+            }))
+        }
+        return meteorites;
+    }
+
+    randomPos() {
+        let x = Math.floor(Math.random() * 500)
+        return [x, 0]
+    }
+
+
 
 
 }

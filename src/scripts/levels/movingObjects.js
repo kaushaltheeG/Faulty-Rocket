@@ -30,16 +30,7 @@ export default class MovingObjects {
         }
     }
 
-    moveBallonDown() {
-        this.pos[0]--;
-        this.pos[1]--;
-        if (!this.inbounds(this.pos[0], this.pos[1])) {
-            this.pos[0] = 500;
-            this.pos[1] = Math.floor(Math.random() * 300);
-        }
-    }
-    
-    moveBallonUp() {
+    moveDown() {
         this.pos[0]--;
         this.pos[1]++;
         if (!this.inbounds(this.pos[0], this.pos[1])) {
@@ -47,6 +38,18 @@ export default class MovingObjects {
             this.pos[1] = Math.floor(Math.random() * 300);
         }
     }
+
+    moveUp() {
+        this.pos[0]--;
+        this.pos[1]--;
+        if (!this.inbounds(this.pos[0], this.pos[1])) {
+            this.pos[0] = 500;
+            this.pos[1] = Math.floor(Math.random() * 300);
+        }
+    }
+
+    
+    
 
     inbounds(x, y) {
         if (x > this.canvas.width || (x + this.width) < 0 || (y + this.height) < 0 || y > this.canvas.height) {

@@ -48,5 +48,7 @@ export default class Thermosphere {
         this.background.src = './assests/thermosphere/thermo-background.jpg'
     }
 
+    
+
 
 }
