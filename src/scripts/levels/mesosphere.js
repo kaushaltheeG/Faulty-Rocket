@@ -53,5 +53,7 @@ export default class Mesosphere {
         this.meteorite5.src = './assests/mesosphere/meteorite_5.png'
     }
 
+    
+
 
 }

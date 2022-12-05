@@ -20,7 +20,7 @@ newGame.innerHTML = 'New Game';
 consoleInterfaceDiv.appendChild(newGame)
 newGame.addEventListener('click', (e)=> {
     if (game) game.quote.timer.endTimer();
-    game = new Game(ctx, 1, canvasEl);
+    game = new Game(ctx, 2, canvasEl);
 })
 
 let errorArr = [], errorCount = 0;

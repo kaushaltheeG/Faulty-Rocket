@@ -1,3 +1,5 @@
+import MovingObjects from "./movingObjects";
+
 const ROCKET_INIT = {
     SX: 0,
     SY: 0,
@@ -39,14 +41,57 @@ export default class Stratosphere {
             ROCKET_INIT.SWIDTH, ROCKET_INIT.SHEIGHT,
             ROCKET_INIT.DX, ROCKET_INIT.DY,
             ROCKET_INIT.DWIDTH, ROCKET_INIT.DHEIGHT);
+        this.clouds.forEach(cloud => {
+            cloud.draw(this.ctx);
+            cloud.moveHoz();
+        })
+        this.balloons.forEach(balloon => {
+            balloon.draw(this.ctx);
+            balloon.moveHoz();
+        })
+        // this.ctx.drawImage(this.weatherBallon, 0,0, 200, 300, 300, 150, 50, 200);
         requestAnimationFrame(this.animate.bind(this));
     }
 
     assignSrcs() {
         this.background.src = './assests/stratosphere/stratoBackground_complete.png'
-        this.cloud1.src = './assests/stratosphere/cloud1.png'
-        this.cloud2.src = './assests/stratosphere/cloud2.png'
-        this.cloud3.src = './assests/stratosphere/cloud3.png'
-        this.weatherBallon.src = './assests/stratosphere/weather-balloon.png'
+        this.clouds = this.generateClouds();
+        this.balloons = this.generateBallons();
+    }
+
+    generateClouds() {
+        let clouds = [];
+        for (let i = 1; i < 4; i++) {
+            clouds.push(new MovingObjects({
+                pos: this.randomPos(300),
+                width: 100,
+                height: 50,
+                color: 'black',
+                canvas: this.canvas,
+                src: `./assests/stratosphere/cloud${i}.png`
+            }))
+        }
+        return clouds;
+    }
+
+    generateBallons() {
+        let balloons = [];
+        for (let i=0; i<4; i++) {
+            balloons.push(new MovingObjects({
+                pos: this.randomPos(150),
+                width: 50,
+                height: 200,
+                color: 'black',
+                canvas: this.canvas,
+                src: `./assests/stratosphere/weather-balloon.png`
+            }))
+        }
+        return balloons
+    }
+
+    randomPos(height) {
+        let x = Math.floor(Math.random() * 500)
+        let y = Math.floor(Math.random() * height);
+        return [x, y]
     }
 }
