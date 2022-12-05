@@ -9,12 +9,13 @@ export default class Game {
         this.level = new Level(level, this.ctx); 
         this.x = 0;
         this.y = 0;
-        this.quote = new Quote;
+        this.quote = new Quote();
         this.strikes = 0;
         // this.quote = new Quote();
-        // this.i = new Image();
+        this.rocketImage = new Image();
         // this.typeWC = typeWC;
-        // this.i.src = "../../assests/stars-test.png";
+        this.rocketImage.src = './assests/rocket_launched_test.png'
+        // this.rocketImage.onload 
         this.animate()
         // this.start();
     }
@@ -58,10 +59,12 @@ export default class Game {
         this.ctx.rect(100, 675, 300, 75);
         this.ctx.fillStyle = 'grey'             
         this.ctx.stroke();
+        console.log(this.rocketImage);
+        // this.ctx.drawImage(this.rocketImage, 200, 600)
         this.ctx.fillStyle = 'red';
-        // console.log(this.pos);
+        // // console.log(this.pos);
         this.ctx.fillRect(225, 600, 50, 75)
-        // this.ctx.clearRect(0,0, 10, 10);
+        this.ctx.clearRect(0,0, 10, 10);
         // this.draw()
         // clearInterval(this.renderBackground())
         // this.renderBackground()

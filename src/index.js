@@ -1,7 +1,6 @@
 import TypeWritingConsole from "./scripts/typewriting-console";
 import Game from "./scripts/game";
 
-const RANDOM_QUOTE_API_URL = "https://api.quotable.io/random?minLength=100&maxLength=450";
 const quoteDisplay = document.getElementById("quoteDisplay");
 const quoteInput = document.getElementById("quoteInput");
 const consoleInterfaceDiv = document.querySelector("#console-interface");
@@ -21,7 +20,7 @@ newGame.innerHTML = 'New Game';
 consoleInterfaceDiv.appendChild(newGame)
 newGame.addEventListener('click', (e)=> {
     if (game) game.quote.timer.endTimer();
-    game = new Game(ctx, 0, canvasEl);
+    game = new Game(ctx, 1, canvasEl);
 })
 
 let errorArr = [], errorCount = 0;
