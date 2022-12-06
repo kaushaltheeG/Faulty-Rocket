@@ -11,8 +11,6 @@ export default class Game {
         this.y = 0;
         this.quote = new Quote();
         this.strikes = 0;
-        this.rocketImage = new Image();
-        this.rocketImage.src = './assests/rocket_launched_test.png'
         this.animate()
         // this.start();
     }
@@ -31,7 +29,9 @@ export default class Game {
         this.strikes++; 
         this.quote.timer.endTimer();
         this.quote = new Quote();
-        this.animate();
+        //this.animate();
+        this.level.renderLevel(this.level.state)
+
 
     }
 
@@ -46,9 +46,7 @@ export default class Game {
     }
 
     animate() {
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
-        this.ctx.drawImage(this.level.platform, 50, 400, 400, 400)
-        this.ctx.drawImage(this.level.rocket, 0, 0, 135, 145, 215, 575, 100, 150);
+        this.level.renderLevel(this.level.state)
         requestAnimationFrame(this.animate.bind(this));
 
     }

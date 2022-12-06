@@ -31,10 +31,11 @@ export default class MovingObjects {
     }
 
     moveHozRight() {
-        this.pos[0]++;
+        console.log(this.pos)
+        this.pos[0] += 3;
         if (!this.inbounds(this.pos[0], this.pos[1])) {
-            this.pos[0] = 500;
-            this.pos[1] = Math.floor(Math.random() * 300);
+            this.pos[0] = 0;
+            this.pos[1] = 300;
         }
     }
 
@@ -74,8 +75,6 @@ export default class MovingObjects {
         }
     }
 
-    
-    
 
     inbounds(x, y) {
         if (x > this.canvas.width || (x + this.width) < 0 || (y + this.height) < 0 || y > this.canvas.height) {

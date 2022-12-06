@@ -25,15 +25,14 @@ export default class Base {
         this.rocket = rocket;
         this.platform = platform;
         this.background = this.loadBackground();
-        console.log(this.background);
-        // this.assignSrcs();
+        this.layerZero = new Image();
         this.animate(true);
     }
 
     animate(idle) {
-        //have weather ballons moving 
+
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
-        // this.ctx.drawImage(this.background, 0, 0);
+        // this.ctx.drawImage(this.layerZero, 0, 0, this.canvas.width, this.canvas.height);
         this.background.forEach((layer, i) => {
             if (i === 1 || i === 2) {
                 layer.draw(this.ctx);
@@ -55,7 +54,7 @@ export default class Base {
     }
 
     // assignSrcs() {
-    //     this.background.src = './assests/base/ '
+    //     this.layerZero.src = `./assests/base/1.png`
     // }
 
     loadBackground() {
@@ -63,16 +62,22 @@ export default class Base {
         for (let i=1; i < 8; i++) {
             background.push(
                 i === 2 || i === 3 ? new MovingObjects({
-                    pos: [325, 0],
-                    width: 100,
-                    height: 50,
+                    pos: this.randomPos(),
+                    width: 400,
+                    height: 225,
                     color: 'black',
                     canvas: this.canvas,
                     src: `./assests/base/${i}.png`
                     }) : new Image());
+
             if (i !== 2 || i !== 3) background[i-1].src = `./assests/base/${i}.png`
         }
         return background
+    }
+
+    randomPos() {
+        let x = Math.floor(Math.random() * 100)
+        return [x, 300]
     }
 
 

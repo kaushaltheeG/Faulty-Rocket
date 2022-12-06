@@ -57,6 +57,9 @@ export default class Level {
         
     }
 
+
+
+    //test 
     animate() {
         this.ctx.clearRect(0,0, this.canvas.width, this.canvas.height)
         this.ctx.drawImage(this.tropoBackground, 0, 0);
