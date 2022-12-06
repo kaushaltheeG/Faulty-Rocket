@@ -13,18 +13,22 @@
 <body>
     <div class="app">
         <div id="control-center">
-            <div class="timer" id="timer"></div>
-            <div>
-                <div class="wpm" id="past-charCount"></div>
-                <div class="wpm" id="past-time"></div>
-                <div class="wpm" id="error-count"></div>
-                <div class="wpm" id="past-wpm"></div>
-            </div>
-            <div id="console-interface">
+            <!-- <div class="timer" id="timer"></div> -->
+            <!-- <div id="console-interface"> </div> -->
+            <div id="display-screen">
+                <div class="timer" id="timer"></div>
                 <div class="quote-display" id="quoteDisplay"></div>
-                <!-- <div id="input-background"> -->
-                    <textarea name="" class="quote-input" id="quoteInput" cols="30" rows="10" autofocus></textarea>
-                <!-- </div> -->
+                <div id="past-run-data">
+                    <div class="wpm" id="past-charCount"></div>
+                    <div class="wpm" id="past-time"></div>
+                    <div class="wpm" id="error-count"></div>
+                    <div class="wpm" id="past-wpm"></div>
+                </div>
+            </div>
+            
+            <div id="input-display">
+                <textarea name="" class="quote-input" id="quoteInput" cols="30" rows="10" autofocus></textarea>
+                <div id="keyboard"> </div>
             </div>
         </div>
         <div class="canvas">

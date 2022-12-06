@@ -48,10 +48,7 @@ export default class Game {
     animate() {
         this.level.renderLevel(this.level.state)
         requestAnimationFrame(this.animate.bind(this));
-
     }
-
-
 
 
     renderBackground() {
