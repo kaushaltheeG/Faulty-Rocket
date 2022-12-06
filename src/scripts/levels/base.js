@@ -53,9 +53,6 @@ export default class Base {
         if (idle) requestAnimationFrame(this.animate.bind(this));
     }
 
-    // assignSrcs() {
-    //     this.layerZero.src = `./assests/base/1.png`
-    // }
 
     loadBackground() {
         let background = [];
@@ -76,8 +73,8 @@ export default class Base {
     }
 
     randomPos() {
-        let x = Math.floor(Math.random() * 100)
-        return [x, 300]
+        let x = Math.floor(Math.random() * 500)
+        return [-200, 300]
     }
 
 

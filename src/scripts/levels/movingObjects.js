@@ -32,9 +32,9 @@ export default class MovingObjects {
 
     moveHozRight() {
         // console.log(this.pos)
-        this.pos[0] += 3;
+        this.pos[0] +=  0.1;
         if (!this.inbounds(this.pos[0], this.pos[1])) {
-            this.pos[0] = 0;
+            this.pos[0] = -200;
             this.pos[1] = 300;
         }
     }

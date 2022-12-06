@@ -11,8 +11,7 @@ export default class Game {
         this.y = 0;
         this.quote = new Quote();
         this.strikes = 0;
-        this.animate()
-        // this.start();
+        // this.animate()
     }
 
     gameOver() {
@@ -29,10 +28,8 @@ export default class Game {
         this.strikes++; 
         this.quote.timer.endTimer();
         this.quote = new Quote();
-        //this.animate();
-        this.level.renderLevel(this.level.state)
-
-
+        this.animate();
+        // this.level.renderLevel(this.level.state)
     }
 
     newLevel() {
@@ -40,14 +37,12 @@ export default class Game {
         this.quote.timer.endTimer();
         this.strikes = 0; 
         this.quote = new Quote;
-        this.level.renderLevel(this.level.state)
-        this.ctx.fillStyle = 'red';
-        this.ctx.fillRect(225, 600, 50, 75)
+        this.animate();
+        // this.level.renderLevel(this.level.state)
     }
 
     animate() {
         this.level.renderLevel(this.level.state)
-        requestAnimationFrame(this.animate.bind(this));
     }
 
 
