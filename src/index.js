@@ -4,6 +4,7 @@ import Game from "./scripts/game";
 const quoteDisplay = document.getElementById("quoteDisplay");
 const quoteInputDiv = document.getElementById("quoteInput");
 const quoteInput = document.getElementById("quote-input")
+const allLetterEles = document.querySelectorAll('.letter');
 const inputDisplayDiv = document.querySelector("#input-display");
 const canvasEl = document.getElementById("rocket-canvas");
 const ctx = canvasEl.getContext("2d");
@@ -45,7 +46,7 @@ quoteInput.addEventListener('input', (e) => {
     })
     
     if (finished) {
-        
+
         const twc = new TypeWritingConsole(game.quote.charCount, game.quote.timer.pastTime, errorCount, ctx, game.level)
         twc.rocket.animate(() => {
             if (twc.rocket.passedLevel) {
@@ -64,6 +65,44 @@ function _catchErors(quoteSpan) {
     })
     return errorArr.length; 
 }
+
+//keyboard feature 
+const keyboard = document.querySelector(".keyboard");
+keyboard.addEventListener('keydown', (e) => {
+    if (!e.metaKey) {
+        const keyEle = e.key !== " " ? document.getElementById(`${e.key}`) : document.getElementById(`${e.code}`)
+        keyEle.classList.add('pressedKey')
+        if (e.shiftKey) _captializeAll();
+    }
+})
+
+keyboard.addEventListener('keyup', (e) => {
+    // console.log(e);
+    if (!e.metaKey) {
+        const keyEle = e.key !== " " ? document.getElementById(`${e.key}`) : document.getElementById(`${e.code}`)
+        keyEle.classList.remove('pressedKey')
+        keyEle.classList.add('releasedKey')
+        if (!e.shiftKey) _lowerAll();
+    }
+})
+
+function _captializeAll() {
+    allLetterEles.forEach((span, i) => {
+        span.innerHTML = span.innerHTML.toUpperCase();
+    })
+}
+
+function _lowerAll() {
+    allLetterEles.forEach((span, i) => {
+        span.innerHTML = span.innerHTML.toLowerCase();
+    })
+}
+
+
+
+
+
+
 
 
 

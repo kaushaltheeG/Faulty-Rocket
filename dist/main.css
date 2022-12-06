@@ -44,10 +44,18 @@ textarea {
   align-items: center;
 }
 
-.keyboard {
+.keyboard-display {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.pressedKey {
+  background-color: green;
+}
+
+.releasedKey {
+  background-color: none;
 }
 
 .correct {
