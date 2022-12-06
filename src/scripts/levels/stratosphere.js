@@ -3,8 +3,8 @@ import MovingObjects from "./movingObjects";
 const ROCKET_INIT = {
     SX: 0,
     SY: 0,
-    SWIDTH: 140,
-    SHEIGHT: 150,
+    SWIDTH: 135,
+    SHEIGHT: 145,
     DX: 215,
     DY: 575,
     DWIDTH: 100,
@@ -30,14 +30,15 @@ export default class Stratosphere {
         this.cloud3 = new Image();
         this.weatherBallon = new Image();
         this.assignSrcs();
-        this.animate();
+        this.animate(true);
     }
 
-    animate() {
+    animate(idle) {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
         this.ctx.drawImage(this.background, 0, 0);
         this.ctx.drawImage(this.platform, PLATFORM.DX, PLATFORM.DY, PLATFORM.DWIDTH, PLATFORM.DHEIGHT)
-        this.ctx.drawImage(this.rocket, ROCKET_INIT.SX, ROCKET_INIT.SY,
+        
+        if (idle) this.ctx.drawImage(this.rocket, ROCKET_INIT.SX, ROCKET_INIT.SY,
             ROCKET_INIT.SWIDTH, ROCKET_INIT.SHEIGHT,
             ROCKET_INIT.DX, ROCKET_INIT.DY,
             ROCKET_INIT.DWIDTH, ROCKET_INIT.DHEIGHT);
@@ -50,7 +51,7 @@ export default class Stratosphere {
             balloon.moveHoz();
         })
         // this.ctx.drawImage(this.weatherBallon, 0,0, 200, 300, 300, 150, 50, 200);
-        requestAnimationFrame(this.animate.bind(this));
+        if (idle) requestAnimationFrame(this.animate.bind(this));
     }
 
     assignSrcs() {

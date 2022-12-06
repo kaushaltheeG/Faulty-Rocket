@@ -2,11 +2,11 @@ import MovingObjects from "./movingObjects";
 const ROCKET_INIT = {
     SX: 0,
     SY: 0,
-    SWIDTH: 140, 
-    SHEIGHT: 150,
+    SWIDTH: 135,
+    SHEIGHT: 145,
     DX: 215,
     DY: 575,
-    DWIDTH: 100, 
+    DWIDTH: 100,
     DHEIGHT: 150
 }
 
@@ -25,23 +25,25 @@ export default class Troposphere {
         this.rocket = rocket;
         this.platform = platform;
         this.assignSrcs();
-        this.animate();
+        this.animate(true);
     }
 
-    animate() {
+    animate(idle) {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
         this.ctx.drawImage(this.background, 0, 0, this.canvas.width, this.canvas.height);
         this.ctx.drawImage(this.platform, PLATFORM.DX, PLATFORM.DY, PLATFORM.DWIDTH, PLATFORM.DHEIGHT)
-        this.ctx.drawImage(this.rocket, ROCKET_INIT.SX, ROCKET_INIT.SY, 
-            ROCKET_INIT.SWIDTH, ROCKET_INIT.SHEIGHT, 
-            ROCKET_INIT.DX, ROCKET_INIT.DY,
-            ROCKET_INIT.DWIDTH, ROCKET_INIT.DHEIGHT);
+        if (idle) {
+            this.ctx.drawImage(this.rocket, ROCKET_INIT.SX, ROCKET_INIT.SY, 
+                ROCKET_INIT.SWIDTH, ROCKET_INIT.SHEIGHT, 
+                ROCKET_INIT.DX, ROCKET_INIT.DY,
+                ROCKET_INIT.DWIDTH, ROCKET_INIT.DHEIGHT);
+        }
         this.clouds.forEach(cloud => {
             cloud.draw(this.ctx);
             cloud.moveHoz();
         })
 
-        requestAnimationFrame(this.animate.bind(this));
+        if (idle) requestAnimationFrame(this.animate.bind(this, true));
     }
     
     assignSrcs() {

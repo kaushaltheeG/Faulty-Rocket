@@ -1,8 +1,8 @@
 const ROCKET_INIT = {
     SX: 0,
     SY: 0,
-    SWIDTH: 140,
-    SHEIGHT: 150,
+    SWIDTH: 135,
+    SHEIGHT: 145,
     DX: 215,
     DY: 575,
     DWIDTH: 100,
@@ -31,6 +31,7 @@ export default class Base {
         //have weather ballons moving 
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
         this.ctx.drawImage(this.background, 0, 0);
+
         requestAnimationFrame(this.animate.bind(this));
     }
 

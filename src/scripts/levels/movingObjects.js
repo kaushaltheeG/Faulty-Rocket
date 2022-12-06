@@ -23,7 +23,7 @@ export default class MovingObjects {
     }
     
     moveHoz() {
-        this.pos[0]--;
+        this.pos[0] --;
         if (!this.inbounds(this.pos[0], this.pos[1])) {
             this.pos[0] = 500;
             this.pos[1] = Math.floor(Math.random() * 300);
@@ -40,10 +40,28 @@ export default class MovingObjects {
     }
 
     moveUp() {
-        this.pos[0]--;
-        this.pos[1]--;
+        // this.pos[0] ;
+        this.pos[1] += 0.01;
         if (!this.inbounds(this.pos[0], this.pos[1])) {
-            this.pos[0] = 500;
+            this.pos[0] = -100;
+            this.pos[1] = -100;
+        }
+    }
+
+    moveDiagonalDown() {
+        this.pos[0] += 0.25;
+        this.pos[1] += 0.25;
+        if (!this.inbounds(this.pos[0], this.pos[1])) {
+            this.pos[0] = -100;
+            this.pos[1] = Math.floor(Math.random() * 300);
+        }
+    }
+
+    moveDiagonalUp() {
+        this.pos[0] -= 0.5;
+        this.pos[1] -= 0.5;
+        if (!this.inbounds(this.pos[0], this.pos[1])) {
+            this.pos[0] = 600;
             this.pos[1] = Math.floor(Math.random() * 300);
         }
     }

@@ -6,21 +6,16 @@ const quoteInput = document.getElementById("quoteInput");
 const consoleInterfaceDiv = document.querySelector("#console-interface");
 const canvasEl = document.getElementById("rocket-canvas");
 const ctx = canvasEl.getContext("2d");
-let animatation; 
 
 canvasEl.width = 500;
 canvasEl.height = 750; 
-// canvasEl.style = 'border: 1px solid #000000';
-// ctx.beginPath();
-// ctx.rect(100, 675, 300, 75);
-// ctx.stroke();
 let game; 
 let newGame = document.createElement('button');
 newGame.innerHTML = 'New Game';
 consoleInterfaceDiv.appendChild(newGame)
 newGame.addEventListener('click', (e)=> {
     if (game) game.quote.timer.endTimer();
-    game = new Game(ctx, 4, canvasEl);
+    game = new Game(ctx, 0, canvasEl);
 })
 
 let errorArr = [], errorCount = 0;
@@ -49,7 +44,7 @@ quoteInput.addEventListener('input', (e) => {
     })
     
     if (finished) {
-        const twc = new TypeWritingConsole(game.quote.charCount, game.quote.timer.pastTime, errorCount, ctx, game.level.passingWpm)
+        const twc = new TypeWritingConsole(game.quote.charCount, game.quote.timer.pastTime, errorCount, ctx, game.level)
         twc.rocket.animate(() => {
             if (twc.rocket.passedLevel) {
                 game.newLevel();

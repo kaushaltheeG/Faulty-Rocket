@@ -3,19 +3,19 @@ import Rocket from "./rocket";
 
 export default class TypeWritingConsole {
 
-    constructor(characterCount, time, errors, ctx, passingWpm) {
+    constructor(characterCount, time, errors, ctx, level) {
         console.log('hi from twc')
         this.characterCount = characterCount;
         this.time = time;   
         this.errors = errors; 
         this.ctx = ctx; 
-        this.passingWpm = passingWpm;
+        this.level = level;
         this.minutes =  parseInt(this.time.slice(0,2));
         this.seconds = parseInt(this.time.slice(3));
         this.adjTime = this.adjustTime()
         this.wpm = this.calculateWPM();
         this.printResults();
-        this.rocket = new Rocket(this.wpm, this.ctx, this.passingWpm);
+        this.rocket = new Rocket(this.wpm, this.ctx, this.level);
     }
 
     adjustTime() {
