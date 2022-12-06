@@ -30,6 +30,14 @@ export default class MovingObjects {
         }
     }
 
+    moveHozRight() {
+        this.pos[0]++;
+        if (!this.inbounds(this.pos[0], this.pos[1])) {
+            this.pos[0] = 500;
+            this.pos[1] = Math.floor(Math.random() * 300);
+        }
+    }
+
     moveDown() {
         this.pos[0]--;
         this.pos[1]++;

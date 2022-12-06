@@ -12,7 +12,7 @@ const spriteHeight = 145;
 
 export default class Rocket {
     constructor(wpm, ctx, level) {
-        this.wpm = 5; 
+        this.wpm = wpm; 
         this.ctx = ctx; 
         this.level = level;
         this.passingWpm = this.level.passingWpm;
@@ -37,7 +37,7 @@ export default class Rocket {
         // new Troposphere(this.ctx, this.canvas, this.level.rocket, this.level.platform);
         switch (state) {
             case 0: //base
-                return this.base;                
+                return this.level.base;                
             case 1: //troposphere
                 return this.level.tropo 
                 
@@ -60,7 +60,7 @@ export default class Rocket {
         this.pos.add(this.velocity);
 
         //background animatation 
-        if (this.level.state !== 0) this.currentLevel.animate(false);
+        this.currentLevel.animate(false);
 
         //rocket animation 
         if (!this.passedLevel && (this.pos.y <= this.engineFailPos && this.pos.y > this.explosionPos)) {

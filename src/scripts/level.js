@@ -3,6 +3,7 @@ import Stratosphere from "./levels/stratosphere";
 import Mesosphere from "./levels/mesosphere";
 import Thermosphere from "./levels/thermosphere";
 import Exosphere from "./levels/exosphere";
+import Base from "./levels/base";
 
 export default class Level {
     constructor(state, ctx) {
@@ -24,7 +25,8 @@ export default class Level {
         this.platform.src = './assests/launch-final.png'
         switch(state) {
             case 0: //base
-                this.canvas.className = 'level-zero'
+                // this.canvas.className = 'level-zero'
+                this.base = new Base(this.ctx, this.canvas, this.rocket, this.platform)
                 this.passingWpm = 20;
                 break;
             case 1: //troposphere
