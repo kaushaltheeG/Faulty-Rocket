@@ -149,7 +149,7 @@ export default class Rocket {
             for row 2: max is 294 while y at 150
             for row 3: max is 440 while y is 300 but says 286 on crop
         */
-       console.log(`sx: ${this.sx} sy: ${this.sy}`);
+    //    console.log(`sx: ${this.sx} sy: ${this.sy}`);
 
         if (this.sx < 435 && !this.sy) {
            //top row 

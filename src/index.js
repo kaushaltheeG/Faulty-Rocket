@@ -2,7 +2,8 @@ import TypeWritingConsole from "./scripts/typewriting-console";
 import Game from "./scripts/game";
 
 const quoteDisplay = document.getElementById("quoteDisplay");
-const quoteInput = document.getElementById("quoteInput");
+const quoteInputDiv = document.getElementById("quoteInput");
+const quoteInput = document.getElementById("quote-input")
 const inputDisplayDiv = document.querySelector("#input-display");
 const canvasEl = document.getElementById("rocket-canvas");
 const ctx = canvasEl.getContext("2d");
@@ -12,7 +13,7 @@ canvasEl.height = 750;
 let game; 
 let newGame = document.createElement('button');
 newGame.innerHTML = 'New Game';
-inputDisplayDiv.appendChild(newGame)
+quoteInputDiv.appendChild(newGame)
 newGame.addEventListener('click', (e)=> {
     if (game) game.quote.timer.endTimer();
     game = new Game(ctx, 0, canvasEl);
@@ -44,6 +45,7 @@ quoteInput.addEventListener('input', (e) => {
     })
     
     if (finished) {
+        
         const twc = new TypeWritingConsole(game.quote.charCount, game.quote.timer.pastTime, errorCount, ctx, game.level)
         twc.rocket.animate(() => {
             if (twc.rocket.passedLevel) {

@@ -8,6 +8,7 @@ export default class Quote {
         this.charCount = 0;
         this.renderNewQuote();
         this.timer = new Timer();
+
     }
 
     async getRandomQuote() {
@@ -15,7 +16,7 @@ export default class Quote {
             const res = await fetch(RANDOM_QUOTE_API_URL);
             if (res.ok) {
                 let data = await res.json();
-                console.log(data.content)
+                // console.log(data.content)
                 return data.content;
             } else {
                 let data = await res.join();
@@ -27,11 +28,11 @@ export default class Quote {
     }
 
     async renderNewQuote() {
-
+        this.quoteInput = document.getElementById("quote-input")
         const quote = await this.getRandomQuote();
         console.log(quote)
         quoteDisplay.innerHTML = "";
-        quoteInput.value = null;
+        this.quoteInput.value = null;
         //charCount = 0;
         quote.split('').forEach(char => {
             this.charCount++;

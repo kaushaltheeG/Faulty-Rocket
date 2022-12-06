@@ -31,12 +31,22 @@ textarea {
 
 .quote-input {
   width: 100%;
+  margin-right: 3rem;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
 }
 
 .quote-input:focus {
   border-color: black;
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
@@ -65,4 +75,11 @@ textarea {
 
 #input-display {
   display: flex;
+  flex-direction: column;
 }
+
+#quoteInput {
+  display: flex;
+}
+
+/* CSS */

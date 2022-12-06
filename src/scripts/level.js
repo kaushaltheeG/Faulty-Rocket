@@ -70,7 +70,7 @@ export default class Level {
     troposphere() {
         this.tropoBackground = new Image();
         this.tropoBackground.src = './assests/troposphere/tropoBackground.png'
-        console.log(this.tropoBackground)
+        // console.log(this.tropoBackground)
         this.animate();
     }
 

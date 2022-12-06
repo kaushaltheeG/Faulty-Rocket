@@ -4,7 +4,7 @@ import Rocket from "./rocket";
 export default class TypeWritingConsole {
 
     constructor(characterCount, time, errors, ctx, level) {
-        console.log('hi from twc')
+        // console.log('hi from twc')
         this.characterCount = characterCount;
         this.time = time;   
         this.errors = errors; 

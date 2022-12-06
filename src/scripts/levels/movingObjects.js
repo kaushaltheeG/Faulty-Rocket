@@ -31,7 +31,7 @@ export default class MovingObjects {
     }
 
     moveHozRight() {
-        console.log(this.pos)
+        // console.log(this.pos)
         this.pos[0] += 3;
         if (!this.inbounds(this.pos[0], this.pos[1])) {
             this.pos[0] = 0;
