@@ -55,6 +55,11 @@ export default class Mesosphere {
             ROCKET_INIT.SWIDTH, ROCKET_INIT.SHEIGHT,
             ROCKET_INIT.DX, ROCKET_INIT.DY,
             ROCKET_INIT.DWIDTH, ROCKET_INIT.DHEIGHT);
+        if (this.strikes >= 3) {
+            this.ctx.font = "50px Rockwell";
+            this.ctx.fillStyle = 'red'
+            this.ctx.fillText('GAME OVER', 100, 325, this.canvas.width)
+        }
         this.amountOfLives();
         if (idle) requestAnimationFrame(this.animate.bind(this));
     }

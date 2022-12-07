@@ -20,7 +20,7 @@ quoteInputDiv.appendChild(newGame)
 new Start(ctx, canvasEl);
 newGame.addEventListener('click', (e)=> {
     if (game) game.quote.timer.endTimer();
-    game = new Game(ctx, 0, canvasEl);
+    game = new Game(ctx, 5, canvasEl);
 })
 
 let errorArr = [], errorCount = 0;
@@ -57,7 +57,7 @@ quoteInput.addEventListener('input', (e) => {
             }
         });
     }
-    game.gameOver();
+    //game.gameOver();
 })
 
 function _catchErors(quoteSpan) {

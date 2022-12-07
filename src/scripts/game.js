@@ -42,34 +42,10 @@ export default class Game {
     }
 
     animate() {
-        // console.log(`game: ${this.strikes}`)
         this.level.renderLevel(this.level.state, this.strikes)
     }
 
 
-    renderBackground() {
-        let that = this;
-        this.i.onload = function () {
-            that.ctx.drawImage(that.i, 0, that.y, 500, 500);
-            console.log(that.y);
-            if (that.y >= 499) {
-                that.y = 0
-            }
-        } 
-    }
-    
-    backgroundMove() {
-        
-        setInterval(()=> {
-            this.y++
-            // this.liftOff++;
-            this.ctx.drawImage(this.i, 0, this.y, 500, 500);
-            if (this.y >= 499) {
-                this.y = 0
-            } 
 
-        }, this.typeWC.adjTime)
-
-    }
 }
 

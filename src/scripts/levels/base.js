@@ -53,17 +53,25 @@ export default class Base {
                 ROCKET_INIT.DX, ROCKET_INIT.DY,
                 ROCKET_INIT.DWIDTH, ROCKET_INIT.DHEIGHT);
         }
+        if (this.strikes >= 3) {
+            this.ctx.font = "50px Rockwell";
+            this.ctx.fillStyle = 'red'
+            this.ctx.fillText('GAME OVER', 100, 325, this.canvas.width)
+        }
         this.amountOfLives()
         if (idle) requestAnimationFrame(this.animate.bind(this));
     }
 
 
     loadBackground() {
+        const randPos = () => {
+            return Math.floor(Math.random() * 500)
+        }
         let background = [];
         for (let i=1; i < 8; i++) {
             background.push(
                 i === 2 || i === 3 ? new MovingObjects({
-                    pos: this.randomPos(),
+                    pos: [randPos(),300],
                     width: 400,
                     height: 225,
                     color: 'black',
@@ -71,10 +79,24 @@ export default class Base {
                     src: `./assests/base/${i}.png`
                     }) : new Image());
 
-            if (i !== 2 || i !== 3) background[i-1].src = `./assests/base/${i}.png`
+            if (i !== 2 || i !== 3) {background[i-1].src = `./assests/base/${i}.png`}
+            
+
         }
         return background
     }
+
+    // moreClouds() {
+    //     this.background.push(new MovingObjects({
+    //             pos: [randPos(), 300],
+    //             width: 400,
+    //             height: 225,
+    //             color: 'black',
+    //             canvas: this.canvas,
+    //             src: `./assests/base/${i}.png`
+    //         })
+    //     }
+    // }
 
     loadLife() {
         this.life = new Image();
@@ -92,11 +114,6 @@ export default class Base {
         } else if (this.strikes === 2) {
             this.ctx.drawImage(this.life, 0, 0, 335, 335, 0, 700, 50, 50)
         }
-    }
-
-    randomPos() {
-        let x = Math.floor(Math.random() * 500)
-        return [-200, 300]
     }
 
 

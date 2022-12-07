@@ -1,6 +1,6 @@
 import MovingObjects from "./levels/movingObjects";
 
-
+let  insAimate; 
 const spriteWidth = 135;
 const spriteHeight = 145;
 export default class Start {
@@ -19,38 +19,45 @@ export default class Start {
     }
 
     renderInstructions() {
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
-        this.ctx.drawImage(this.background, 0, 0, 500, 750);
-        this.ctx.drawImage(this.starStatic, 0, 0, 500, 750);
-        this.stars.forEach(star => {
-            star.draw(this.ctx);
-            star.movePurelyDowm();
-        })
-        //Display test 
-        this.ctx.font = "20px Rockwell";
-        this.ctx.fillStyle = 'white'
+        // this.timeOut = setInterval(() => {
+            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
+            this.ctx.drawImage(this.background, 0, 0, 500, 750);
+            this.ctx.drawImage(this.starStatic, 0, 0, 500, 750);
+            this.stars.forEach(star => {
+                star.draw(this.ctx);
+                star.movePurelyDowm();
+            })
+            //Display test 
+            this.ctx.font = 'oblique 20px Verdana';
+            this.ctx.fillStyle = 'white'
+    
+            if (this.sen1) this.ctx.fillText(this.sen1, 0, 50, this.canvas.width)
+            if (this.sen2) this.ctx.fillText(this.sen2, 0, 80, this.canvas.width)
+            if (this.sen3) this.ctx.fillText(this.sen3, 0, 120, this.canvas.width)
+            if (this.sen4) this.ctx.fillText(this.sen4, 0, 150, this.canvas.width)
+            if (this.sen5) this.ctx.fillText(this.sen5, 0, 180, this.canvas.width)
+            if (this.sen6) this.ctx.fillText(this.sen6, 0, 210, this.canvas.width)
+            if (this.sen7) this.ctx.fillText(this.sen7, 0, 240, this.canvas.width)
+            if (this.sen8) this.ctx.fillText(this.sen8, 0, 270, this.canvas.width)
+    
+            if (this.currentKey < 9) this.ctx.fillText(this.currentIns, 0, this.posY, this.canvas.width); //(this.canvas.width / 2) - this.ctx.measureText(this.currentIns).width / 2,
+            if (this.currentKey < 9) {
+                this.spliceAndAdd(this.sliceIdx);
+            } else {
+                this.ctx.drawImage(this.rocket.i, this.sx, this.sy,
+                    spriteWidth, spriteHeight,
+                    this.rocket.pos[0], this.rocket.pos[1], 100, 150)
+                this.rocket.moveUpAndDown(this.up);
+                this.ctx.fillText('Click to Start', 185, 575)
+                this.up = this.up ? false : true;
+            }
+            insAimate = requestAnimationFrame(this.renderInstructions.bind(this));
+    
+        // }, 1000 / 60)
+    }
 
-        if (this.sen1) this.ctx.fillText(this.sen1, 0, 50, this.canvas.width)
-        if (this.sen2) this.ctx.fillText(this.sen2, 0, 80, this.canvas.width)
-        if (this.sen3) this.ctx.fillText(this.sen3, 0, 120, this.canvas.width)
-        if (this.sen4) this.ctx.fillText(this.sen4, 0, 150, this.canvas.width)
-        if (this.sen5) this.ctx.fillText(this.sen5, 0, 180, this.canvas.width)
-        if (this.sen6) this.ctx.fillText(this.sen6, 0, 210, this.canvas.width)
-        if (this.sen7) this.ctx.fillText(this.sen7, 0, 240, this.canvas.width)
-        if (this.sen8) this.ctx.fillText(this.sen8, 0, 270, this.canvas.width)
-
-        if (this.currentKey < 9) this.ctx.fillText(this.currentIns, 0, this.posY, this.canvas.width); //(this.canvas.width / 2) - this.ctx.measureText(this.currentIns).width / 2,
-        if (this.currentKey < 9) {
-            this.spliceAndAdd(this.sliceIdx);
-        } else {
-            this.ctx.drawImage(this.rocket.i, this.sx, this.sy,
-                spriteWidth, spriteHeight,
-                this.rocket.pos[0], this.rocket.pos[1], 100, 150)
-            this.rocket.moveUpAndDown(this.up);
-            this.ctx.fillText('Click to Start', 175, 575)
-            this.up = this.up ? false : true;
-        }
-        requestAnimationFrame(this.renderInstructions.bind(this));
+    startGame() {
+        cancelAnimationFrame(isAnimate);
     }
 
     spliceAndAdd(idx) {
@@ -100,11 +107,11 @@ export default class Start {
         this.sen8 = '';
         this.currentKey = 1;
         return {
-            1: "An ecofriendly resource has been discovered.",
-            2: "It is be used by this rocket.", 
+            1: "RocketvF is currently being fueled by a ",
+            2: "newly synthesized 'ecofriendly' resource", 
             3: "However, the rocket is very ... faulty.",
-            4: "The rocket must be charged at each atmosphere level.",
-            5: "To get to the next level, ",
+            4: "The rocket must be charged at each level of",
+            5: "the atmosphere. To get to the next level, ",
             6: "CORRECTLY COMPLETE each quote at a certain WPM.",
             7: "You have 3 tries at each level.",
             8: "Get this FAULTY ROCKET to SPACE!"

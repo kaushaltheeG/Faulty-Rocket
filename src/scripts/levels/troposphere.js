@@ -44,6 +44,11 @@ export default class Troposphere {
             cloud.draw(this.ctx);
             cloud.moveHoz();
         })
+        if (this.strikes >= 3) {
+            this.ctx.font = "50px Rockwell";
+            this.ctx.fillStyle = 'red'
+            this.ctx.fillText('GAME OVER', 100, 325, this.canvas.width)
+        }   
         this.amountOfLives();
         if (idle) requestAnimationFrame(this.animate.bind(this, true));
     }
