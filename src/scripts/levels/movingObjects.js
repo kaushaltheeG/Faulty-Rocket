@@ -62,7 +62,6 @@ export default class MovingObjects {
         } else {
             this.pos[1] -= 5;
         }
-
     }
 
     

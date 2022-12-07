@@ -14,7 +14,7 @@ export default class Level {
         // this.platform.src = './assests/launch-final.png'
     }
 
-    renderLevel(state) {
+    renderLevel(state, strikes) {
         // console.log('in level')
         // ground:0, troposphere:1, stratosphere:2, mesosphere:3, thermosphere:4 and exosphere:5 goal(will be rendered to show user has won)
         this.canvas = document.getElementById("rocket-canvas")
@@ -26,27 +26,27 @@ export default class Level {
         switch(state) {
             case 0: //base
                 // this.canvas.className = 'level-zero'
-                this.base = new Base(this.ctx, this.canvas, this.rocket, this.platform)
+                this.base = new Base(this.ctx, this.canvas, this.rocket, this.platform, strikes)
                 this.passingWpm = 20;
                 break;
             case 1: //troposphere
                 // canvas.className = 'level-one'
-                this.tropo = new Troposphere(this.ctx, this.canvas, this.rocket, this.platform);
+                this.tropo = new Troposphere(this.ctx, this.canvas, this.rocket, this.platform, strikes);
                 this.passingWpm = 35;
                 break;
             case 2: //stratosphere
                 // canvas.className = 'level-two'
-                this.strato = new Stratosphere(this.ctx, this.canvas, this.rocket, this.platform);
+                this.strato = new Stratosphere(this.ctx, this.canvas, this.rocket, this.platform, strikes);
                 this.passingWpm = 50; 
                 break;
             case 3: //Mesosphere
                 // canvas.className = 'level-three'
-                this.meso = new Mesosphere(this.ctx, this.canvas, this.rocket, this.platform)
+                this.meso = new Mesosphere(this.ctx, this.canvas, this.rocket, this.platform, strikes)
                 this.passingWpm = 75; 
                 break;
             case 4: //Thermosphere
                 // canvas.className = 'level-four'
-                this.thermo = new Thermosphere(this.ctx, this.canvas, this.rocket, this.platform);
+                this.thermo = new Thermosphere(this.ctx, this.canvas, this.rocket, this.platform, strikes);
                 this.passingWpm = 100; 
                 break;
             case 5: //Exosphere

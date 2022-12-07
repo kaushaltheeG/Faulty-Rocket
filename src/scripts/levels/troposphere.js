@@ -18,13 +18,15 @@ const PLATFORM = {
 }
 export default class Troposphere {
 
-    constructor(ctx, canvas, rocket, platform) {
+    constructor(ctx, canvas, rocket, platform, strikes) {
         this.ctx = ctx; 
         this.canvas = canvas; 
+        this.strikes = strikes
         this.background = new Image();
         this.rocket = rocket;
         this.platform = platform;
         this.assignSrcs();
+        this.loadLife();
         this.animate(true);
     }
 
@@ -42,7 +44,7 @@ export default class Troposphere {
             cloud.draw(this.ctx);
             cloud.moveHoz();
         })
-
+        this.amountOfLives();
         if (idle) requestAnimationFrame(this.animate.bind(this, true));
     }
     
@@ -78,6 +80,24 @@ export default class Troposphere {
             return false;
         } else {
             return true;
+        }
+    }
+
+    loadLife() {
+        this.life = new Image();
+        this.life.src = './assests/life.png'
+    }
+
+    amountOfLives() {
+        if (this.strikes === 0) {
+            this.ctx.drawImage(this.life, 0, 0, 335, 335, 0, 700, 50, 50)
+            this.ctx.drawImage(this.life, 0, 0, 335, 335, 50, 700, 50, 50)
+            this.ctx.drawImage(this.life, 0, 0, 335, 335, 100, 700, 50, 50)
+        } else if (this.strikes === 1) {
+            this.ctx.drawImage(this.life, 0, 0, 335, 335, 0, 700, 50, 50)
+            this.ctx.drawImage(this.life, 0, 0, 335, 335, 50, 700, 50, 50)
+        } else if (this.strikes === 2) {
+            this.ctx.drawImage(this.life, 0, 0, 335, 335, 0, 700, 50, 50)
         }
     }
 

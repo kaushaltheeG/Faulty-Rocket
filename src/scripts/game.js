@@ -11,7 +11,7 @@ export default class Game {
         this.y = 0;
         this.quote = new Quote();
         this.strikes = 0;
-        // this.animate()
+        this.animate()
     }
 
     gameOver() {
@@ -24,8 +24,8 @@ export default class Game {
 
     
     failedLevel() {
-        console.log('in failed');
         this.strikes++; 
+        
         this.quote.timer.endTimer();
         this.quote = new Quote();
         this.animate();
@@ -42,7 +42,8 @@ export default class Game {
     }
 
     animate() {
-        this.level.renderLevel(this.level.state)
+        // console.log(`game: ${this.strikes}`)
+        this.level.renderLevel(this.level.state, this.strikes)
     }
 
 

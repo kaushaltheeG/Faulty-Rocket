@@ -27,7 +27,7 @@ export default class Start {
             star.movePurelyDowm();
         })
         //Display test 
-        this.ctx.font = "24px Rockwell";
+        this.ctx.font = "20px Rockwell";
         this.ctx.fillStyle = 'white'
 
         if (this.sen1) this.ctx.fillText(this.sen1, 0, 50, this.canvas.width)
@@ -100,7 +100,7 @@ export default class Start {
         this.sen8 = '';
         this.currentKey = 1;
         return {
-            1: "An ecofriendly resource has been discovered",
+            1: "An ecofriendly resource has been discovered.",
             2: "It is be used by this rocket.", 
             3: "However, the rocket is very ... faulty.",
             4: "The rocket must be charged at each atmosphere level.",

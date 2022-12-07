@@ -19,17 +19,19 @@ const PLATFORM = {
 }
 
 export default class Stratosphere {
-    constructor(ctx, canvas, rocket, platform) {
+    constructor(ctx, canvas, rocket, platform, strikes) {
         this.ctx = ctx;
         this.canvas = canvas;
         this.rocket = rocket;
         this.platform = platform;
+        this.strikes = strikes
         this.background = new Image();
         this.cloud1 = new Image();
         this.cloud2 = new Image();
         this.cloud3 = new Image();
         this.weatherBallon = new Image();
         this.assignSrcs();
+        this.loadLife();
         this.animate(true);
     }
 
@@ -50,6 +52,7 @@ export default class Stratosphere {
             balloon.draw(this.ctx);
             balloon.moveHoz();
         })
+        this.amountOfLives();
         // this.ctx.drawImage(this.weatherBallon, 0,0, 200, 300, 300, 150, 50, 200);
         if (idle) requestAnimationFrame(this.animate.bind(this));
     }
@@ -95,4 +98,25 @@ export default class Stratosphere {
         let y = Math.floor(Math.random() * height);
         return [x, y]
     }
+
+    loadLife() {
+        this.life = new Image();
+        this.life.src = './assests/life.png'
+    }
+
+    amountOfLives() {
+        if (this.strikes === 0) {
+            this.ctx.drawImage(this.life, 0, 0, 335, 335, 0, 700, 50, 50)
+            this.ctx.drawImage(this.life, 0, 0, 335, 335, 50, 700, 50, 50)
+            this.ctx.drawImage(this.life, 0, 0, 335, 335, 100, 700, 50, 50)
+        } else if (this.strikes === 1) {
+            this.ctx.drawImage(this.life, 0, 0, 335, 335, 0, 700, 50, 50)
+            this.ctx.drawImage(this.life, 0, 0, 335, 335, 50, 700, 50, 50)
+        } else if (this.strikes === 2) {
+            this.ctx.drawImage(this.life, 0, 0, 335, 335, 0, 700, 50, 50)
+        }
+    }
+    
+
+    
 }

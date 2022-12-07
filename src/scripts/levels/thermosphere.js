@@ -20,13 +20,15 @@ const PLATFORM = {
 
 
 export default class Thermosphere {
-    constructor(ctx, canvas, rocket, platform) {
+    constructor(ctx, canvas, rocket, platform, strikes) {
         this.ctx = ctx;
         this.canvas = canvas;
         this.rocket = rocket;
+        this.strikes = strikes;
         this.platform = platform;
         this.backgroundSpeed = 1; 
         this.assignSrcs();
+        this.loadLife();
         this.animate(true);
     }
 
@@ -41,6 +43,7 @@ export default class Thermosphere {
             ROCKET_INIT.DX, ROCKET_INIT.DY,
             ROCKET_INIT.DWIDTH, ROCKET_INIT.DHEIGHT);
         }
+        this.amountOfLives();
         // this.ctx.drawImage(this.background, 0, 0, 500, 750);
         if (idle) requestAnimationFrame(this.animate.bind(this));
     }
@@ -60,6 +63,23 @@ export default class Thermosphere {
         console.log(this.background.pos);
         if (this.background.pos[0] > this.background.width) this.background.pos[0] = 0;
         else this.background.pos[0] += this.backgroundSpeed;
+    }
+    loadLife() {
+        this.life = new Image();
+        this.life.src = './assests/life.png'
+    }
+
+    amountOfLives() {
+        if (this.strikes === 0) {
+            this.ctx.drawImage(this.life, 0, 0, 335, 335, 0, 700, 50, 50)
+            this.ctx.drawImage(this.life, 0, 0, 335, 335, 50, 700, 50, 50)
+            this.ctx.drawImage(this.life, 0, 0, 335, 335, 100, 700, 50, 50)
+        } else if (this.strikes === 1) {
+            this.ctx.drawImage(this.life, 0, 0, 335, 335, 0, 700, 50, 50)
+            this.ctx.drawImage(this.life, 0, 0, 335, 335, 50, 700, 50, 50)
+        } else if (this.strikes === 2) {
+            this.ctx.drawImage(this.life, 0, 0, 335, 335, 0, 700, 50, 50)
+        }
     }
 
 

@@ -19,13 +19,15 @@ const PLATFORM = {
 }
 
 export default class Base {
-    constructor(ctx, canvas, rocket, platform) {
+    constructor(ctx, canvas, rocket, platform, strikes) {
         this.ctx = ctx;
         this.canvas = canvas;
         this.rocket = rocket;
         this.platform = platform;
+        this.strikes = strikes;
         this.background = this.loadBackground();
         this.layerZero = new Image();
+        this.loadLife();
         this.animate(true);
     }
 
@@ -42,6 +44,8 @@ export default class Base {
             }
         })
 
+        
+
         this.ctx.drawImage(this.platform, PLATFORM.DX, PLATFORM.DY, PLATFORM.DWIDTH, PLATFORM.DHEIGHT)
         if (idle) {
             this.ctx.drawImage(this.rocket, ROCKET_INIT.SX, ROCKET_INIT.SY,
@@ -49,7 +53,7 @@ export default class Base {
                 ROCKET_INIT.DX, ROCKET_INIT.DY,
                 ROCKET_INIT.DWIDTH, ROCKET_INIT.DHEIGHT);
         }
-
+        this.amountOfLives()
         if (idle) requestAnimationFrame(this.animate.bind(this));
     }
 
@@ -70,6 +74,24 @@ export default class Base {
             if (i !== 2 || i !== 3) background[i-1].src = `./assests/base/${i}.png`
         }
         return background
+    }
+
+    loadLife() {
+        this.life = new Image();
+        this.life.src = './assests/life.png'
+    }
+
+    amountOfLives() {
+        if (this.strikes === 0) {
+            this.ctx.drawImage(this.life, 0, 0, 335, 335, 0, 700, 50, 50)
+            this.ctx.drawImage(this.life, 0, 0, 335, 335, 50, 700, 50, 50)
+            this.ctx.drawImage(this.life, 0, 0, 335, 335, 100, 700, 50, 50)
+        } else if (this.strikes === 1) {
+            this.ctx.drawImage(this.life, 0, 0, 335, 335, 0, 700, 50, 50)
+            this.ctx.drawImage(this.life, 0, 0, 335, 335, 50, 700, 50, 50)
+        } else if (this.strikes === 2) {
+            this.ctx.drawImage(this.life, 0, 0, 335, 335, 0, 700, 50, 50)
+        }
     }
 
     randomPos() {
