@@ -57,7 +57,16 @@ export default class Base {
             this.ctx.font = "oblique 50px Verdana";
             this.ctx.fillStyle = 'red'
             this.ctx.fillText('GAME OVER', 100, 325, this.canvas.width)
+            // this.ctx.fillText('Click To Play Again', 0, 730)
+            this.ctx.font = "oblique 20px Verdana";
+            this.ctx.fillStyle = 'black'
+            this.ctx.fillText('Click To Try Again', 160, 350, this.canvas.width)
         }
+
+        this.ctx.font = "25px Rockwell";
+        this.ctx.fillStyle = 'purple'
+        this.ctx.fillText('BASE LVL', 375, 25, this.canvas.width)
+
         this.ctx.font = "oblique 20px Verdana";
         this.ctx.fillStyle = 'white'
         this.ctx.fillText('Base', 0, 0, this.canvas.width)

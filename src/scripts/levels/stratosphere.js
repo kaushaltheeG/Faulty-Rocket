@@ -56,7 +56,13 @@ export default class Stratosphere {
             this.ctx.font = "50px Rockwell";
             this.ctx.fillStyle = 'red'
             this.ctx.fillText('GAME OVER', 100, 325, this.canvas.width)
+            this.ctx.font = "oblique 20px Verdana";
+            this.ctx.fillStyle = 'black'
+            this.ctx.fillText('Click To Try Again', 160, 350, this.canvas.width)
         }
+        this.ctx.font = "25px Rockwell";
+        this.ctx.fillStyle = 'white'
+        this.ctx.fillText('STRATOSPHERE', 285, 25, this.canvas.width)
         this.amountOfLives();
         // this.ctx.drawImage(this.weatherBallon, 0,0, 200, 300, 300, 150, 50, 200);
         if (idle) requestAnimationFrame(this.animate.bind(this));

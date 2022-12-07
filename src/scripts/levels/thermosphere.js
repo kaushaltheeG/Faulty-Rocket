@@ -47,7 +47,15 @@ export default class Thermosphere {
             this.ctx.font = "50px Rockwell";
             this.ctx.fillStyle = 'red'
             this.ctx.fillText('GAME OVER', 100, 325, this.canvas.width)
+            this.ctx.font = "oblique 20px Verdana";
+            this.ctx.fillStyle = 'black'
+            this.ctx.fillText('Click To Try Again', 160, 350, this.canvas.width)
         }
+
+        this.ctx.font = "25px Rockwell";
+        this.ctx.fillStyle = 'green'
+        this.ctx.fillText('THERMOSPHERE', 275, 25, this.canvas.width)
+
         this.amountOfLives();
         // this.ctx.drawImage(this.background, 0, 0, 500, 750);
         if (idle) requestAnimationFrame(this.animate.bind(this));

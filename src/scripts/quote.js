@@ -1,5 +1,5 @@
 import Timer from "./timer";
-const RANDOM_QUOTE_API_URL = "https://api.quotable.io/random?minLength=100&maxLength=450";
+const RANDOM_QUOTE_API_URL = "https://api.quotable.io/random?minLength=100&maxLength=250";
 
 export default class Quote {
     constructor() {
