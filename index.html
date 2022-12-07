@@ -20,7 +20,9 @@
     <title>Faulty Rocket</title>
 </head>
 <body>
+    <center><h1>Faulty Rocket</h1></center> 
     <div class="app">
+
         <div id="control-center">
             <!-- <div class="timer" id="timer"></div> -->
             <!-- <div id="console-interface"> </div> -->
@@ -28,13 +30,13 @@
             <div id="display-screen">
                 <div class="quote-display" id="quoteDisplay"></div>
             </div>
-            <h5>Past Run</h5>
-                <div id="wpm-factors">
+            <h5 class="run-data" id="past-run-text"></h5>
+                <div class="run-data" id="wpm-factors">
                     <div class="wpm" id="past-charCount"></div>
                     <div class="wpm" id="past-time"></div>
                     <div class="wpm" id="error-count"></div>
                 </div>
-            <div class="wpm" id="past-wpm"></div>
+            <div class="wpm run-data" id="past-wpm"></div>
 
             <div id="input-display">
                 <div id="quoteInput">
@@ -97,7 +99,6 @@
         </div>
         <div class="canvas">
             <canvas id="rocket-canvas"></canvas>
-        
         </div>
     </div>
 </body>

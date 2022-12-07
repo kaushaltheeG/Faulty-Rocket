@@ -1,5 +1,6 @@
 import Rocket from "./rocket";
 
+const h5Div = document.getElementById('past-run-text');
 
 export default class TypeWritingConsole {
 
@@ -38,6 +39,8 @@ export default class TypeWritingConsole {
     }
 
     printResults() {
+        h5Div.innerHTML = '';
+        h5Div.innerHTML = 'Past Run'
         this._pastTimeCal(this.time);
         this._pastCharCount(this.characterCount);
         this._pastErrorCount(this.errors);
@@ -48,8 +51,8 @@ export default class TypeWritingConsole {
             // const pastTimeEle = document.getElementById('wpm-factors')
             // pastTimeEle.innerHTML = ""
             // this.wpmFactorsDiv.innerHTML = "";
-
             const span = document.createElement("span");
+            span.setAttribute('class', 'wpm')
             span.innerHTML = `Time: ${time}`;
             this.wpmFactorsDiv.appendChild(span);
         }
@@ -60,8 +63,8 @@ export default class TypeWritingConsole {
         // console.log(pastCharCount)
         // pastCharCount.innerHTML = "";
         // this.wpmFactorsDiv.innerHTML = "";
-
         const span = document.createElement("span");
+        span.setAttribute('class', 'wpm')
         span.innerHTML = `Char Count: ${count}`;
         this.wpmFactorsDiv.appendChild(span);
     }
@@ -70,6 +73,7 @@ export default class TypeWritingConsole {
         // const pastErrorCountEle = document.getElementById('error-count')
         // this.wpmFactorsDiv.innerHTML = "";
         const span = document.createElement("span");
+        span.setAttribute('class', 'wpm')
         span.innerHTML = `Error(s): ${errorCount}`;
          this.wpmFactorsDiv.appendChild(span);
     }

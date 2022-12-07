@@ -108,7 +108,7 @@ export default class Start {
         this.currentKey = 1;
         return {
             1: "RocketvF is currently being fueled by a ",
-            2: "newly synthesized 'ecofriendly' resource", 
+            2: "newly synthesized 'ecofriendly' resource.", 
             3: "However, the rocket is very ... faulty.",
             4: "The rocket must be charged at each level of",
             5: "the atmosphere. To get to the next level, ",

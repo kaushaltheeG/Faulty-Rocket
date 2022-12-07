@@ -38,6 +38,7 @@ export default class Exosphere {
             src: rocket.src
         })
         this.up = true;
+        this.upDown = true; 
         this.pathIdx = 0;
         this.ringPlanets = this.generateRingPlanets();
         this.twinPlanet = this.generateTwinPlanets();
@@ -103,6 +104,8 @@ export default class Exosphere {
             this.ctx.font = 'oblique 15px Verdana';
             //create a temp canavs which will be use to restart the game loop 
             this.ctx.fillText('Click To Play Again', 0, 730)
+            this.rocket.moveUpAndDown(this.upDown)
+            this.upDown = this.upDown ? false : true;
         }
         
     }

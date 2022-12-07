@@ -15,12 +15,13 @@ canvasEl.width = 500;
 canvasEl.height = 750; 
 let game; 
 let newGame = document.createElement('button');
+newGame.setAttribute('id', 'new-game')
 newGame.innerHTML = 'New Game';
 quoteInputDiv.appendChild(newGame)
 new Start(ctx, canvasEl);
 newGame.addEventListener('click', (e)=> {
     if (game) game.quote.timer.endTimer();
-    game = new Game(ctx, 5, canvasEl);
+    game = new Game(ctx, 0, canvasEl);
 })
 
 let errorArr = [], errorCount = 0;
