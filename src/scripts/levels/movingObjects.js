@@ -39,6 +39,14 @@ export default class MovingObjects {
         }
     }
 
+    movePurelyDowm() {
+        this.pos[1] += 1;
+        if (!this.inbounds(this.pos[0], this.pos[1])) {
+            this.pos[0] = 0;
+            this.pos[1] = -700;
+        }
+    }
+
     moveDown() {
         this.pos[0]--;
         this.pos[1]++;
@@ -47,6 +55,17 @@ export default class MovingObjects {
             this.pos[1] = Math.floor(Math.random() * 300);
         }
     }
+
+    moveUpAndDown(up) {
+        if (up) {
+            this.pos[1] += 5;
+        } else {
+            this.pos[1] -= 5;
+        }
+
+    }
+
+    
 
     moveUp() {
         // this.pos[0] ;
