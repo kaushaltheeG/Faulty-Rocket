@@ -1,5 +1,6 @@
 import TypeWritingConsole from "./scripts/typewriting-console";
 import Game from "./scripts/game";
+const keyboard = document.querySelector(".keyboard");
 
 const quoteDisplay = document.getElementById("quoteDisplay");
 const quoteInputDiv = document.getElementById("quoteInput");
@@ -40,13 +41,11 @@ quoteInput.addEventListener('input', (e) => {
             charSpan.classList.add('incorrect');
             finished = false; 
             caughtErrors = _catchErors(quoteSpanArr);
-            if (errorCount < caughtErrors) errorCount = caughtErrors
-            
+            if (errorCount < caughtErrors) errorCount = caughtErrors;
         }
     })
     
     if (finished) {
-
         const twc = new TypeWritingConsole(game.quote.charCount, game.quote.timer.pastTime, errorCount, ctx, game.level)
         twc.rocket.animate(() => {
             if (twc.rocket.passedLevel) {
@@ -67,7 +66,7 @@ function _catchErors(quoteSpan) {
 }
 
 //keyboard feature 
-const keyboard = document.querySelector(".keyboard");
+// const keyboard = document.querySelector(".keyboard");
 keyboard.addEventListener('keydown', (e) => {
     if (!e.metaKey) {
         const keyEle = e.key !== " " ? document.getElementById(`${e.key}`) : document.getElementById(`${e.code}`)
@@ -81,7 +80,6 @@ keyboard.addEventListener('keyup', (e) => {
     if (!e.metaKey) {
         const keyEle = e.key !== " " ? document.getElementById(`${e.key}`) : document.getElementById(`${e.code}`)
         keyEle.classList.remove('pressedKey')
-        keyEle.classList.add('releasedKey')
         if (!e.shiftKey) _lowerAll();
     }
 })

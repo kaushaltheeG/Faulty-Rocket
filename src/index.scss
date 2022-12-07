@@ -3,6 +3,33 @@ body {
     margin-bottom: 5%;
 }
 
+button {
+    background-color: rgb(149, 103, 172);
+    border: none;
+    display: inline-block;
+    padding: .5rem 1rem;
+    margin: .3rem;
+    font-size: 1.3rem;
+    width: 50px;
+    height: 50px;
+    border-radius: .5rem;
+}
+
+.backspace, .shift, .space {
+    font-size: 1rem;
+    text-transform: capitalize;
+}
+
+.backspace {
+    width: 100px;
+}
+
+.shift {
+    width: 70px;
+}
+.space {
+    width: 350px;
+}
 
 
 textarea {
@@ -24,13 +51,10 @@ textarea {
     
     /* Optional Styling */
     padding: 20px;
-    border-style: solid;
-    border-color: #B6C7D6;
+    // border-style: solid;
+    // border-color: #000603;
     border-radius: 20px;
-    background-color: #EAF0F6;
-    // margin: auto;
-    // user-select: none;
-    // background-color: rbg(38, 110, 90);
+    // background-color: #073d1d;
 }
 
 .quote-input {
@@ -77,11 +101,10 @@ textarea {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-
 }
 
 #control-center {
-    background-color: rgb(66, 66, 66);
+    background-color: rgb(132, 87, 102);
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -89,17 +112,54 @@ textarea {
 }
 
 #display-screen {
+    display: flex;
+    flex-direction: column;
+    border-style: solid;
+    border-color: #000603;
+    border-radius: 20px;
+    height: 30%;
+    align-items: center;
+    // background-color: rgb(49, 51, 49);
+    background-image: url('../assests/tv-screen_color.png');
+}
 
+#timer {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    margin-top: 20px;
+    border-style: solid;
+    border-color: #000603;
+    border-radius: 20px;
 }
 
 #input-display {
     display: flex;
     flex-direction: column;
+    background-color: crimson;
 }
 
 #quoteInput {
     display: flex;
 }
+
+// #past-run-data {
+//     display: flex;
+//     flex-direction: row;
+//     width: 100%;
+//     // align-items: center;
+
+//     justify-content: space-evenly;
+// }
+
+#wpm-factors  {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    // align-items: center;
+    
+    justify-content: space-evenly;
+}
+
 
 
 

@@ -6,6 +6,35 @@ body {
   margin-bottom: 5%;
 }
 
+button {
+  background-color: rgb(149, 103, 172);
+  border: none;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin: 0.3rem;
+  font-size: 1.3rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 0.5rem;
+}
+
+.backspace, .shift, .space {
+  font-size: 1rem;
+  text-transform: capitalize;
+}
+
+.backspace {
+  width: 100px;
+}
+
+.shift {
+  width: 70px;
+}
+
+.space {
+  width: 350px;
+}
+
 textarea {
   width: 100%;
   resize: none;
@@ -23,10 +52,7 @@ textarea {
   text-align: center;
   /* Optional Styling */
   padding: 20px;
-  border-style: solid;
-  border-color: #B6C7D6;
   border-radius: 20px;
-  background-color: #EAF0F6;
 }
 
 .quote-input {
@@ -74,20 +100,48 @@ textarea {
 }
 
 #control-center {
-  background-color: rgb(66, 66, 66);
+  background-color: rgb(132, 87, 102);
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
 }
 
+#display-screen {
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  border-color: #000603;
+  border-radius: 20px;
+  height: 30%;
+  align-items: center;
+  background-image: url("../assests/tv-screen_color.png");
+}
+
+#timer {
+  font-family: "Orbitron", sans-serif;
+  font-weight: bold;
+  margin-top: 20px;
+  border-style: solid;
+  border-color: #000603;
+  border-radius: 20px;
+}
+
 #input-display {
   display: flex;
   flex-direction: column;
+  background-color: crimson;
 }
 
 #quoteInput {
   display: flex;
+}
+
+#wpm-factors {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
 }
 
 /* CSS */

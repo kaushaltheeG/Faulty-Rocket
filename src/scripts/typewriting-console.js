@@ -14,6 +14,8 @@ export default class TypeWritingConsole {
         this.seconds = parseInt(this.time.slice(3));
         this.adjTime = this.adjustTime()
         this.wpm = this.calculateWPM();
+        this.wpmFactorsDiv = document.getElementById('wpm-factors')
+        this.wpmFactorsDiv.innerHTML = "";
         this.printResults();
         this.rocket = new Rocket(this.wpm, this.ctx, this.level);
     }
@@ -43,35 +45,41 @@ export default class TypeWritingConsole {
     }
     _pastTimeCal(time) {
         if (time) {
-            const pastTimeEle = document.getElementById('past-time')
-            pastTimeEle.innerHTML = ""
+            // const pastTimeEle = document.getElementById('wpm-factors')
+            // pastTimeEle.innerHTML = ""
+            // this.wpmFactorsDiv.innerHTML = "";
+
             const span = document.createElement("span");
-            span.innerHTML = `Past Run Time: ${time}`;
-            pastTimeEle.appendChild(span);
+            span.innerHTML = `Time: ${time}`;
+            this.wpmFactorsDiv.appendChild(span);
         }
     }
 
      _pastCharCount(count) {
-        const pastCharCount = document.getElementById('past-charCount')
-        pastCharCount.innerHTML = "";
+        //  const pastCharCount = document.getElementById('wpm-factors')
+        // console.log(pastCharCount)
+        // pastCharCount.innerHTML = "";
+        // this.wpmFactorsDiv.innerHTML = "";
+
         const span = document.createElement("span");
-        span.innerHTML = `Past char count: ${count}`;
-        pastCharCount.appendChild(span);
+        span.innerHTML = `Char Count: ${count}`;
+        this.wpmFactorsDiv.appendChild(span);
     }
 
      _pastErrorCount(errorCount) {
-        const pastErrorCountEle = document.getElementById('error-count')
-        pastErrorCountEle.innerHTML = "";
+        // const pastErrorCountEle = document.getElementById('error-count')
+        // this.wpmFactorsDiv.innerHTML = "";
         const span = document.createElement("span");
-        span.innerHTML = `Past error count: ${errorCount}`;
-        pastErrorCountEle.appendChild(span);
+        span.innerHTML = `Error(s): ${errorCount}`;
+         this.wpmFactorsDiv.appendChild(span);
     }
 
      _pastWPM(wpm) {
         const pastWPM = document.getElementById('past-wpm');
         pastWPM.innerHTML = "";
+        // this.wpmFactorsDiv.innerHTML = "";
         const span = document.createElement('span');
-        span.innerHTML = `Past run's WPM: ${wpm}`;
+        span.innerHTML = `Calculated WPM: ${wpm}`;
         pastWPM.appendChild(span);
     }
 

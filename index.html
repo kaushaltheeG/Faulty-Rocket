@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Overpass+Mono:wght@600&family=Space+Mono&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="./src/styles/reset.css" type="text/css" />
     <!-- <link rel="stylesheet" href="../../assests/rocket_launched_02.png" type="text/css" /> -->
     <link rel="stylesheet" href="./dist/main.css" type="text/css" />
@@ -15,16 +19,17 @@
         <div id="control-center">
             <!-- <div class="timer" id="timer"></div> -->
             <!-- <div id="console-interface"> </div> -->
+            <div class="timer" id="timer"></div>
             <div id="display-screen">
-                <div class="timer" id="timer"></div>
                 <div class="quote-display" id="quoteDisplay"></div>
-                <div id="past-run-data">
+            </div>
+            <h5>Past Run</h5>
+                <div id="wpm-factors">
                     <div class="wpm" id="past-charCount"></div>
                     <div class="wpm" id="past-time"></div>
                     <div class="wpm" id="error-count"></div>
-                    <div class="wpm" id="past-wpm"></div>
                 </div>
-            </div>
+            <div class="wpm" id="past-wpm"></div>
 
             <div id="input-display">
                 <div id="quoteInput">
