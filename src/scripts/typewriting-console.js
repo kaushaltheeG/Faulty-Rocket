@@ -5,7 +5,6 @@ const h5Div = document.getElementById('past-run-text');
 export default class TypeWritingConsole {
 
     constructor(characterCount, time, errors, ctx, level) {
-        // console.log('hi from twc')
         this.characterCount = characterCount;
         this.time = time;   
         this.errors = errors; 
@@ -41,6 +40,7 @@ export default class TypeWritingConsole {
     printResults() {
         h5Div.innerHTML = '';
         h5Div.innerHTML = 'Past Run'
+
         this._pastTimeCal(this.time);
         this._pastCharCount(this.characterCount);
         this._pastErrorCount(this.errors);
@@ -48,9 +48,7 @@ export default class TypeWritingConsole {
     }
     _pastTimeCal(time) {
         if (time) {
-            // const pastTimeEle = document.getElementById('wpm-factors')
-            // pastTimeEle.innerHTML = ""
-            // this.wpmFactorsDiv.innerHTML = "";
+
             const span = document.createElement("span");
             span.setAttribute('class', 'wpm')
             span.innerHTML = `Time: ${time}`;
@@ -59,10 +57,7 @@ export default class TypeWritingConsole {
     }
 
      _pastCharCount(count) {
-        //  const pastCharCount = document.getElementById('wpm-factors')
-        // console.log(pastCharCount)
-        // pastCharCount.innerHTML = "";
-        // this.wpmFactorsDiv.innerHTML = "";
+
         const span = document.createElement("span");
         span.setAttribute('class', 'wpm')
         span.innerHTML = `Char Count: ${count}`;
@@ -70,18 +65,17 @@ export default class TypeWritingConsole {
     }
 
      _pastErrorCount(errorCount) {
-        // const pastErrorCountEle = document.getElementById('error-count')
-        // this.wpmFactorsDiv.innerHTML = "";
+
         const span = document.createElement("span");
         span.setAttribute('class', 'wpm')
-        span.innerHTML = `Error(s): ${errorCount}`;
+        span.innerHTML = `Errors: ${errorCount}`;
          this.wpmFactorsDiv.appendChild(span);
     }
 
      _pastWPM(wpm) {
         const pastWPM = document.getElementById('past-wpm');
         pastWPM.innerHTML = "";
-        // this.wpmFactorsDiv.innerHTML = "";
+
         const span = document.createElement('span');
         span.innerHTML = `Calculated WPM: ${wpm}`;
         pastWPM.appendChild(span);

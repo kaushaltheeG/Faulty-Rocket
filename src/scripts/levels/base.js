@@ -56,20 +56,17 @@ export default class Base {
         if (this.strikes >= 3) {
             this.ctx.font = "oblique 50px Verdana";
             this.ctx.fillStyle = 'red'
-            this.ctx.fillText('GAME OVER', 100, 325, this.canvas.width)
+            this.ctx.fillText('GAME OVER', 250, 325, this.canvas.width)
             // this.ctx.fillText('Click To Play Again', 0, 730)
             this.ctx.font = "oblique 20px Verdana";
             this.ctx.fillStyle = 'black'
-            this.ctx.fillText('Click To Try Again', 160, 350, this.canvas.width)
+            this.ctx.fillText('Click To Try Again', 250, 350, this.canvas.width)
         }
 
         this.ctx.font = "25px Rockwell";
         this.ctx.fillStyle = 'purple'
-        this.ctx.fillText('BASE LVL', 375, 25, this.canvas.width)
+        this.ctx.fillText('BASE LVL', 425, 25, this.canvas.width)
 
-        this.ctx.font = "oblique 20px Verdana";
-        this.ctx.fillStyle = 'white'
-        this.ctx.fillText('Base', 0, 0, this.canvas.width)
         this.amountOfLives()
         if (idle) requestAnimationFrame(this.animate.bind(this));
     }
@@ -92,23 +89,10 @@ export default class Base {
                     }) : new Image());
 
             if (i !== 2 || i !== 3) {background[i-1].src = `./assests/base/${i}.png`}
-            
-
+        
         }
         return background
     }
-
-    // moreClouds() {
-    //     this.background.push(new MovingObjects({
-    //             pos: [randPos(), 300],
-    //             width: 400,
-    //             height: 225,
-    //             color: 'black',
-    //             canvas: this.canvas,
-    //             src: `./assests/base/${i}.png`
-    //         })
-    //     }
-    // }
 
     loadLife() {
         this.life = new Image();

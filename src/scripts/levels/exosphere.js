@@ -100,10 +100,10 @@ export default class Exosphere {
         } else {
             // let font = new FontFace('Diplomata SC', )
             this.ctx.font = 'oblique 30px Verdana';
-            this.ctx.fillText('WINNER!', 185, 275);
+            this.ctx.fillText('WINNER!', 250, 275);
             this.ctx.font = 'oblique 15px Verdana';
             //create a temp canavs which will be use to restart the game loop 
-            this.ctx.fillText('Click To Play Again', 0, 730)
+            this.ctx.fillText('Click To Play Again', 75, 730)
             this.rocket.moveUpAndDown(this.upDown)
             this.upDown = this.upDown ? false : true;
         }

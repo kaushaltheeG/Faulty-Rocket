@@ -58,14 +58,14 @@ export default class Mesosphere {
         if (this.strikes >= 3) {
             this.ctx.font = "50px Rockwell";
             this.ctx.fillStyle = 'red'
-            this.ctx.fillText('GAME OVER', 100, 325, this.canvas.width)
+            this.ctx.fillText('GAME OVER', 250, 325, this.canvas.width)
             this.ctx.font = "oblique 20px Verdana";
             this.ctx.fillStyle = 'black'
-            this.ctx.fillText('Click To Try Again', 160, 350, this.canvas.width)
+            this.ctx.fillText('Click To Try Again', 250, 350, this.canvas.width)
         }
         this.ctx.font = "25px Rockwell";
         this.ctx.fillStyle = 'orange'
-        this.ctx.fillText('MESOSPHERE', 315, 25, this.canvas.width)
+        this.ctx.fillText('MESOSPHERE', 400, 25, this.canvas.width)
         this.amountOfLives();
         if (idle) requestAnimationFrame(this.animate.bind(this));
     }

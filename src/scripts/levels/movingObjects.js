@@ -51,8 +51,10 @@ export default class MovingObjects {
         this.pos[0]--;
         this.pos[1]++;
         if (!this.inbounds(this.pos[0], this.pos[1])) {
-            this.pos[0] = 500;
-            this.pos[1] = Math.floor(Math.random() * 300);
+            this.pos[0] = Math.floor(Math.random() * (500 - 200) + 200);
+            // this.pos[1] = Math.floor(Math.random() * 300);
+            this.pos[1] = Math.floor(Math.random() * (-700 + 200) - 200)
+
         }
     }
 
@@ -70,7 +72,6 @@ export default class MovingObjects {
         const path = [[x, y], [x, 0], [x, 0], [-x, y], [-x, y], [x, 0], [y, 0], 
             [-(2 * x), -(2 * y)], [(2 * x), 0], [-x, 0]]
       
-        console.log(this.pos[0], path[pathIdx])
         this.pos[0] += path[pathIdx];
         this.pos[1] += path[pathIdx];
         if (!this.inbounds(this.pos[0], this.pos[1])) {

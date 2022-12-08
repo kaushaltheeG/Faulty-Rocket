@@ -46,15 +46,15 @@ export default class Thermosphere {
         if (this.strikes >= 3) {
             this.ctx.font = "50px Rockwell";
             this.ctx.fillStyle = 'red'
-            this.ctx.fillText('GAME OVER', 100, 325, this.canvas.width)
+            this.ctx.fillText('GAME OVER', 250, 325, this.canvas.width)
             this.ctx.font = "oblique 20px Verdana";
             this.ctx.fillStyle = 'black'
-            this.ctx.fillText('Click To Try Again', 160, 350, this.canvas.width)
+            this.ctx.fillText('Click To Try Again', 250, 350, this.canvas.width)
         }
 
         this.ctx.font = "25px Rockwell";
         this.ctx.fillStyle = 'green'
-        this.ctx.fillText('THERMOSPHERE', 275, 25, this.canvas.width)
+        this.ctx.fillText('THERMOSPHERE', 375, 25, this.canvas.width)
 
         this.amountOfLives();
         // this.ctx.drawImage(this.background, 0, 0, 500, 750);
@@ -73,7 +73,6 @@ export default class Thermosphere {
     }
 
     moveBackground() {
-        console.log(this.background.pos);
         if (this.background.pos[0] > this.background.width) this.background.pos[0] = 0;
         else this.background.pos[0] += this.backgroundSpeed;
     }

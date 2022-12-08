@@ -47,14 +47,14 @@ export default class Troposphere {
         if (this.strikes >= 3) {
             this.ctx.font = "50px Rockwell";
             this.ctx.fillStyle = 'red'
-            this.ctx.fillText('GAME OVER', 100, 325, this.canvas.width)
+            this.ctx.fillText('GAME OVER', 250, 325, this.canvas.width)
             this.ctx.font = "oblique 20px Verdana";
             this.ctx.fillStyle = 'black'
-            this.ctx.fillText('Click To Try Again', 160, 350, this.canvas.width)
+            this.ctx.fillText('Click To Try Again', 250, 350, this.canvas.width)
         }   
         this.ctx.font = "25px Rockwell";
         this.ctx.fillStyle = 'white'
-        this.ctx.fillText('TROPOSPHERE', 300, 25, this.canvas.width)
+        this.ctx.fillText('TROPOSPHERE', 400, 25, this.canvas.width)
 
         this.amountOfLives();
         if (idle) requestAnimationFrame(this.animate.bind(this, true));

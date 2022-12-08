@@ -3,8 +3,7 @@ const RANDOM_QUOTE_API_URL = "https://api.quotable.io/random?minLength=100&maxLe
 
 export default class Quote {
     constructor() {
-        // this.timer = new Timer();
-        // this.errorArr = [];
+       
         this.charCount = 0;
         this.renderNewQuote();
         this.timer = new Timer();
@@ -30,10 +29,10 @@ export default class Quote {
     async renderNewQuote() {
         this.quoteInput = document.getElementById("quote-input")
         const quote = await this.getRandomQuote();
-        console.log(quote)
+       
         quoteDisplay.innerHTML = "";
         this.quoteInput.value = null;
-        //charCount = 0;
+        
         quote.split('').forEach(char => {
             this.charCount++;
             let span = document.createElement("span");
@@ -41,9 +40,6 @@ export default class Quote {
             span.innerHTML = char;
             quoteDisplay.appendChild(span);
         })
-        // charHash[pastRunKey] = charCount;
-        // pastRunKey++;
-        // console.log(timer);
         
         this.timer.startTimer();
     }

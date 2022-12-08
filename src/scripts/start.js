@@ -29,17 +29,17 @@ export default class Start {
             })
             //Display test 
             this.ctx.font = 'oblique 20px Verdana';
-            this.ctx.fillStyle = 'white'
-    
-            if (this.sen1) this.ctx.fillText(this.sen1, 0, 50, this.canvas.width)
-            if (this.sen2) this.ctx.fillText(this.sen2, 0, 80, this.canvas.width)
-            if (this.sen3) this.ctx.fillText(this.sen3, 0, 120, this.canvas.width)
-            if (this.sen4) this.ctx.fillText(this.sen4, 0, 150, this.canvas.width)
-            if (this.sen5) this.ctx.fillText(this.sen5, 0, 180, this.canvas.width)
-            if (this.sen6) this.ctx.fillText(this.sen6, 0, 210, this.canvas.width)
-            if (this.sen7) this.ctx.fillText(this.sen7, 0, 240, this.canvas.width)
-            if (this.sen8) this.ctx.fillText(this.sen8, 0, 270, this.canvas.width)
-    
+            this.ctx.fillStyle = 'blue'
+            this.ctx.textAlign = 'center'
+            if (this.sen1) this.ctx.fillText(this.sen1, 250, 50, this.canvas.width)
+            if (this.sen2) this.ctx.fillText(this.sen2, 250, 80, this.canvas.width)
+            if (this.sen3) this.ctx.fillText(this.sen3, 250, 120, this.canvas.width)
+            if (this.sen4) this.ctx.fillText(this.sen4, 250, 150, this.canvas.width)
+            if (this.sen5) this.ctx.fillText(this.sen5, 250, 180, this.canvas.width)
+            if (this.sen6) this.ctx.fillText(this.sen6, 250, 210, this.canvas.width)
+            if (this.sen7) this.ctx.fillText(this.sen7, 250, 240, this.canvas.width)
+            if (this.sen8) this.ctx.fillText(this.sen8, 250, 270, this.canvas.width)
+            
             if (this.currentKey < 9) this.ctx.fillText(this.currentIns, 0, this.posY, this.canvas.width); //(this.canvas.width / 2) - this.ctx.measureText(this.currentIns).width / 2,
             if (this.currentKey < 9) {
                 this.spliceAndAdd(this.sliceIdx);
@@ -48,7 +48,8 @@ export default class Start {
                     spriteWidth, spriteHeight,
                     this.rocket.pos[0], this.rocket.pos[1], 100, 150)
                 this.rocket.moveUpAndDown(this.up);
-                this.ctx.fillText('Click to Start', 185, 575)
+                // this.ctx.textAlign = 'start';
+                this.ctx.fillText('Click to Start', 250, 575)
                 this.up = this.up ? false : true;
             }
             insAimate = requestAnimationFrame(this.renderInstructions.bind(this));

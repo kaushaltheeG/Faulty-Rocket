@@ -24,7 +24,6 @@ canvasEl.addEventListener('click', (e)=> {
 
 
 quoteInput.addEventListener('input', (e) => {
-    console.log(errorArr)
     const quoteSpanArr = quoteDisplay.querySelectorAll(".rendered-quote")
     const inputValArr = quoteInput.value.split('')
     let finished = true, caughtErrors = 0; 
@@ -59,7 +58,6 @@ quoteInput.addEventListener('input', (e) => {
             }
         });
     }
-    //game.gameOver();
 })
 
 function _catchErors(quoteSpan) {
@@ -79,7 +77,7 @@ keyboard.addEventListener('keydown', (e) => {
 })
 
 keyboard.addEventListener('keyup', (e) => {
-    // console.log(e);
+    
     if (!e.metaKey) {
         const keyEle = e.key !== " " ? document.getElementById(`${e.key}`) : document.getElementById(`${e.code}`)
         keyEle.classList.remove('pressedKey')
@@ -108,7 +106,7 @@ const audioSrc = document.getElementById('music-src')
 const audioArr = ['disco-groove', 'lo-fi-house', 'mesmerizing', 'passion']
 
 audioButton.addEventListener('click', (e)=> {
-    console.log(audioSrc);
+    
     if (audioEle.paused) {
         let rand = Math.floor(Math.random() * audioArr.length)
         audioButton.src = "./assests/sound/pause.png"

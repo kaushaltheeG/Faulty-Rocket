@@ -1,11 +1,5 @@
 import Vector from "./vector";
 
-import Base from "./levels/base";
-import Troposphere from "./levels/troposphere";
-import Stratosphere from "./levels/stratosphere";
-import Mesosphere from "./levels/mesosphere";
-import Thermosphere from "./levels/thermosphere";
-import Exosphere from "./levels/exosphere";
 
 const spriteWidth = 135;
 const spriteHeight = 145; 
@@ -29,7 +23,8 @@ export default class Rocket {
     }
 
     reset() {
-        this.pos = new Vector((this.canvas.width - this.width) / 2, ((this.canvas.height - 75) - this.height))
+        // Start Pos: DX: 215, DY: 575,
+        this.pos = new Vector(215, 575)
         this.velocity = new Vector(0, 0);
     }
 
