@@ -92,6 +92,7 @@ textarea {
   padding: 20px;
   border-radius: 20px;
   font-size: 1.25rem;
+  user-select: none;
   font-family: Arial, Helvetica, sans-serif;
 }
 
