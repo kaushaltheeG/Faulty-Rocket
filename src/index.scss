@@ -84,10 +84,7 @@ textarea {
     padding: 20px;
     border-radius: 20px;
     font-size: 1.25rem;
-    /* Optional Styling */
-    // border-style: solid;
-    // border-color: #000603;
-    // background-color: #073d1d;
+    user-select: none;
 }
 
 .quote-input {
@@ -111,6 +108,7 @@ textarea {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 20px;
 }
 
 .pressedKey {
@@ -120,11 +118,14 @@ textarea {
 
 
 .correct {
-    color: green;
+    color: rgb(7, 243, 7);
+    font-weight: 700;
 }
 
 .incorrect {
-    color: red;
+    color: rgb(201, 0, 0);
+    font-size: x-large;
+    font-weight: 900;
     text-decoration: underline;
 }
 
@@ -139,11 +140,15 @@ textarea {
 }
 
 .a-tags {
-    margin-top: 10px;
+    margin-top: 15px;
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+}
+
+.canvas {
+    margin-left: 20px;
 }
 
 
@@ -153,9 +158,11 @@ textarea {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    margin-right: 20px;
 }
 
 #display-screen {
+    color: whitesmoke;
     display: flex;
     flex-direction: column;
     border-style: solid;
@@ -163,7 +170,9 @@ textarea {
     border-radius: 20px;
     height: 20%;
     align-items: center;
-    background-color: rgb(79, 79, 79);
+    background-color: rgb(19, 18, 18);
+    font-weight: 200;
+    opacity: 0.7;
     // background-image: url('../assests/tv-screen_color.png');
 }
 
@@ -171,13 +180,14 @@ textarea {
     font-family: 'Orbitron', sans-serif;
     font-size: 30px;
     font-weight: bold;
-    color: rgb(11, 198, 11);
-    margin-top: 20px;
+    color: rgb(3, 153, 3);
+    margin-bottom: 20px;
     border-style: solid;
-    border-color: #000603;
+    border-color: #515654;
     border-radius: 50px;
-    background-color: #000603;
+    background-color: #2c2d2d;
     padding: 20px;
+    opacity: 0.7;
 }
 
 #past-run-text {
@@ -216,96 +226,10 @@ textarea {
 }
 
 #audio-btn, #git-icon, #linkedin-icon {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
 }
 
 
 
 
-/* CSS */
-// button {
-//     font-family: "Open Sans", sans-serif;
-//     font-size: 16px;
-//     letter-spacing: 2px;
-//     text-decoration: none;
-//     text-transform: uppercase;
-//     color: #000;
-//     cursor: pointer;
-//     border: 3px solid;
-//     padding: .25rem 1rem; //0.25em 0.5em
-//     box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
-//     position: relative;
-//     user-select: none;
-//     -webkit-user-select: none;
-//     touch-action: manipulation;
-//     display: inline-block;
-// }
-
-// button {
-//     box-shadow: 0px 0px 0px 0px;
-//     top: 5px;
-//     left: 5px;
-// }
-
-// @media (min-width: 768px) {
-//     button {
-//         padding: 0.25em 0.75em;
-//     }
-// }
-
-
-// .canvas {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     margin-top: auto;
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// .level-zero {
-//     background-color: beige;
-// }
-
-// .level-one {
-//     background-color: lightblue;
-// } 
-
-// .level-two {
-//     background-color: aqua;
-// }
-
-// .level-three {
-//     background-color: blue;
-// }
-
-// .level-four {
-//     background-color: darkblue;
-// }
-
-// .level-five {
-//     background-color: black;
-// }

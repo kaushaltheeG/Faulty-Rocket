@@ -23,6 +23,7 @@ canvasEl.addEventListener('click', (e)=> {
 
 let errorArr = [], errorCount = 0;
 quoteInput.addEventListener('input', (e) => {
+    console.log(errorArr)
     const quoteSpanArr = quoteDisplay.querySelectorAll(".rendered-quote")
     const inputValArr = quoteInput.value.split('')
     let finished = true, caughtErrors = 0; 
@@ -48,6 +49,8 @@ quoteInput.addEventListener('input', (e) => {
     if (finished) {
         const twc = new TypeWritingConsole(game.quote.charCount, game.quote.timer.pastTime, errorCount, ctx, game.level)
         twc.rocket.animate(() => {
+            errorArr = [];
+            errorCount = 0; 
             if (twc.rocket.passedLevel) {
                 game.newLevel();
             } else {
@@ -105,12 +108,12 @@ audioButton.addEventListener('click', (e)=> {
     console.log(audioSrc);
     if (audioEle.paused) {
         let rand = Math.floor(Math.random() * audioArr.length)
-        audioButton.src = "./assests/sound/sound-wave.png"
+        audioButton.src = "./assests/sound/pause.png"
         audioSrc.src = `./assests/sound/${audioArr[rand]}.mp3`
         audioEle.load();
         audioEle.play();
     } else {
-        audioButton.src = "./assests/sound/pause.png"
+        audioButton.src = "./assests/sound/sound-wave.png"
         audioEle.pause();
     }
 })
