@@ -1,8 +1,10 @@
 import TypeWritingConsole from "./scripts/typewriting-console";
 import Game from "./scripts/game";
 import Start from "./scripts/start";
-const keyboard = document.querySelector(".keyboard");
 
+
+//Needed vars
+const keyboard = document.querySelector(".keyboard");
 const quoteDisplay = document.getElementById("quoteDisplay");
 const quoteInputDiv = document.getElementById("quoteInput");
 const quoteInput = document.getElementById("quote-input")
@@ -14,6 +16,9 @@ let errorArr = [], errorCount = 0;
 canvasEl.width = 500;
 canvasEl.height = 750; 
 let game; 
+
+
+//Start and New game 
 new Start(ctx, canvasEl);
 
 canvasEl.addEventListener('click', (e)=> {
@@ -22,7 +27,7 @@ canvasEl.addEventListener('click', (e)=> {
     game = new Game(ctx, 0, canvasEl);
 })
 
-
+//Event listners 
 quoteInput.addEventListener('input', (e) => {
     const quoteSpanArr = quoteDisplay.querySelectorAll(".rendered-quote")
     const inputValArr = quoteInput.value.split('')
