@@ -22,7 +22,6 @@ export default class Start {
         // this.timeOut = setInterval(() => {
             this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
             this.ctx.drawImage(this.background, 0, 0, 500, 750);
-            this.ctx.drawImage(this.starStatic, 0, 0, 500, 750);
             this.stars.forEach(star => {
                 star.draw(this.ctx);
                 star.movePurelyDowm();
@@ -120,8 +119,7 @@ export default class Start {
     }
 
     starImageArr() {
-        this.starStatic = new Image();
-        this.starStatic.src = './assests/start_screen/stars3.png'
+        
         let arr = [], x = 0, y = 0;
         for (let i=1; i<5; i++) {
             console.log(y)

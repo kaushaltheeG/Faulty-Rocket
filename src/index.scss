@@ -7,8 +7,11 @@ body {
 
 body {
     margin-top: 1%;
-        margin-bottom: 1%;
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    margin-bottom: 1%;
+    background: linear-gradient(-45deg, #f5ccf6, #f1eef9, #a168fe, #d279ee, #deb0df, 
+                                #c1e3ff, #abc7ff, #8debff, #6cacff, #59e7de, #6be395, 
+                                #54e38e, #41c7af, #99e5a2, #dff48f, #f8c390, #BC3d2f,
+                                #f54646, #f53e84 );
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
 }
@@ -118,8 +121,8 @@ textarea {
 }
 
 .pressedKey {
-    opacity: 0.8;
-    color: rgb(111, 216, 111);
+    opacity: 1;
+    color: rgb(38, 34, 38);
 }
 
 
