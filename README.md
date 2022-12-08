@@ -2,13 +2,13 @@
 
 ##Live Site
 
-##Overview 
+## Overview 
 Faulty Rocket is a type writting game which was created to help users improve upon their typing skills. 
 This game was implemented within a week and created using vanilla JavaScript, HTML5, and CSS.
 ![Screen Shot 2022-12-08 at 9 06 30 AM](https://user-images.githubusercontent.com/26070301/206517436-f611f65b-dfe2-409d-83ef-24c589ac7cec.png)
 
 
-##Features
+## Features
 * Typewriting interface indicates the user's input in real time
 * Virual Keyboard shows the user's key strocks in real time; excluding special characters
 * Run data is posted after user completes a quote.
@@ -16,7 +16,7 @@ This game was implemented within a week and created using vanilla JavaScript, HT
 * Async animation within the canvas
 * A rotation of chill house music at user's convience
 
-##How to play
+## How to play
 * As soon as the timer and quote is rendered, start typing the quote within the input box.
 * The user must correctly complete the quote in order to retrive his or her results.
 * There is 5 different levels each with their own wpm threshold.
@@ -45,9 +45,11 @@ This game was implemented within a week and created using vanilla JavaScript, HT
  
  ### Passing Data to the Canvas
 * The above data is passed to the TypeWrittingConsole class in which is calculates the net WPM. 
+
 ![Screen Shot 2022-12-08 at 9 40 09 AM](https://user-images.githubusercontent.com/26070301/206524626-72fb9618-26e8-43e0-b56b-348a9e945969.png)
 
 * The WPM data is passed to the Rocket class in which the rocket utilizes the information to perform the animation
+
 ![Screen Shot 2022-12-08 at 9 42 01 AM](https://user-images.githubusercontent.com/26070301/206524889-7d4a0d42-bc60-470f-930f-9b35dc0a8a00.png)
 ![Screen Shot 2022-12-08 at 9 43 04 AM](https://user-images.githubusercontent.com/26070301/206525091-66025d35-1053-4165-b93a-a2f8894cbba0.png)
 ![Screen Shot 2022-12-08 at 9 41 44 AM](https://user-images.githubusercontent.com/26070301/206525231-d05277af-bba5-4ab6-82b3-1c7a6104360b.png)
