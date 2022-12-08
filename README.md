@@ -5,7 +5,12 @@
 ## Overview 
 Faulty Rocket is a type writting game which was created to help users improve upon their typing skills. 
 This game was implemented within a week and created using vanilla JavaScript, HTML5, and CSS.
+
+Start Screen
 ![Screen Shot 2022-12-08 at 9 06 30 AM](https://user-images.githubusercontent.com/26070301/206517436-f611f65b-dfe2-409d-83ef-24c589ac7cec.png)
+
+Run Screen
+![Screen Shot 2022-12-08 at 10 02 07 AM](https://user-images.githubusercontent.com/26070301/206530203-08de16a6-425a-456c-a7f6-28d5954d5879.png)
 
 
 ## Features
