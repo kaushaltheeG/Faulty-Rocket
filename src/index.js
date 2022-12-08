@@ -14,10 +14,6 @@ const ctx = canvasEl.getContext("2d");
 canvasEl.width = 500;
 canvasEl.height = 750; 
 let game; 
-// let newGame = document.createElement('button');
-// newGame.setAttribute('id', 'new-game')
-// newGame.innerHTML = 'New Game';
-// quoteInputDiv.appendChild(newGame)
 new Start(ctx, canvasEl);
 
 canvasEl.addEventListener('click', (e)=> {
@@ -70,7 +66,6 @@ function _catchErors(quoteSpan) {
 }
 
 //keyboard feature 
-// const keyboard = document.querySelector(".keyboard");
 keyboard.addEventListener('keydown', (e) => {
     if (!e.metaKey) {
         const keyEle = e.key !== " " ? document.getElementById(`${e.key}`) : document.getElementById(`${e.code}`)
@@ -99,6 +94,26 @@ function _lowerAll() {
         span.innerHTML = span.innerHTML.toLowerCase();
     })
 }
+
+//audio 
+const audioButton = document.getElementById('audio-btn');
+const audioEle = document.getElementById('music');
+const audioSrc = document.getElementById('music-src')
+const audioArr = ['disco-groove', 'lo-fi-house', 'mesmerizing', 'passion']
+
+audioButton.addEventListener('click', (e)=> {
+    console.log(audioSrc);
+    if (audioEle.paused) {
+        let rand = Math.floor(Math.random() * audioArr.length)
+        audioButton.src = "./assests/sound/sound-wave.png"
+        audioSrc.src = `./assests/sound/${audioArr[rand]}.mp3`
+        audioEle.load();
+        audioEle.play();
+    } else {
+        audioButton.src = "./assests/sound/pause.png"
+        audioEle.pause();
+    }
+})
 
 
 
