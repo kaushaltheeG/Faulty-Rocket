@@ -1,7 +1,7 @@
 # Faulty-Rocket
 
 ##Live Site
-[Click To Play!] https://kaushaltheeg.github.io/Faulty-Rocket/
+[Click To Play!] (https://kaushaltheeg.github.io/Faulty-Rocket/)
 
 ## Overview 
 Faulty Rocket is a type writting game which was created to help users improve upon their typing skills. 
