@@ -1,6 +1,6 @@
 # Faulty-Rocket
 
-##Live Site
+
 [Click To Play!] (https://kaushaltheeg.github.io/Faulty-Rocket/)
 
 ## Overview 
