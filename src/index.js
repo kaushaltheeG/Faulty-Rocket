@@ -73,8 +73,8 @@ function _catchErors(quoteSpan) {
 keyboard.addEventListener('keydown', (e) => {
     if (!e.metaKey) {
         const keyEle = e.key !== " " ? document.getElementById(`${e.key}`) : document.getElementById(`${e.code}`)
-        keyEle.classList.add('pressedKey')
         if (e.shiftKey) _captializeAll();
+        keyEle.classList.add('pressedKey')
     }
 })
 
@@ -90,12 +90,14 @@ keyboard.addEventListener('keyup', (e) => {
 function _captializeAll() {
     allLetterEles.forEach((span, i) => {
         span.innerHTML = span.innerHTML.toUpperCase();
+        span.classList.add('pressedKey')
     })
 }
 
 function _lowerAll() {
     allLetterEles.forEach((span, i) => {
         span.innerHTML = span.innerHTML.toLowerCase();
+        span.classList.remove('pressedKey')
     })
 }
 
