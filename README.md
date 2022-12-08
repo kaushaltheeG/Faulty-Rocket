@@ -47,7 +47,7 @@ The forumula used to calculate the net WPM is [(totalChars/5) - errors] / time(m
       _ If so, I add the index of that node list array into my error array, and ensure the error was not counted twice
     _ I retrive the length of the error array and set to my error count placeholder which stores the max error count for that specific run
     
-    ![Screen Shot 2022-12-08 at 9 19 10 AM](https://user-images.githubusercontent.com/26070301/206524138-20a7ed47-25c0-4f85-8c33-8778ed20d993.png)
+![Screen Shot 2022-12-08 at 10 18 42 AM](https://user-images.githubusercontent.com/26070301/206534465-01a47593-6f8d-437b-9560-5de7a572bcfa.png) 
  
  ### Passing Data to the Canvas
 
