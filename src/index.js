@@ -10,18 +10,19 @@ const allLetterEles = document.querySelectorAll('.letter');
 const inputDisplayDiv = document.querySelector("#input-display");
 const canvasEl = document.getElementById("rocket-canvas");
 const ctx = canvasEl.getContext("2d");
-
+let errorArr = [], errorCount = 0;
 canvasEl.width = 500;
 canvasEl.height = 750; 
 let game; 
 new Start(ctx, canvasEl);
 
 canvasEl.addEventListener('click', (e)=> {
+    errorArr = [], errorCount = 0;
     if (game) game.quote.timer.endTimer();
     game = new Game(ctx, 0, canvasEl);
 })
 
-let errorArr = [], errorCount = 0;
+
 quoteInput.addEventListener('input', (e) => {
     console.log(errorArr)
     const quoteSpanArr = quoteDisplay.querySelectorAll(".rendered-quote")
