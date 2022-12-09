@@ -79,5 +79,6 @@ In order to show the user's keystrockes in real time, I utitlize a keydown and k
 3. Improve upon the animations
   _ the rocket and level backgrounds have to the potential to be better
 4. Change the UI of the site
+5. Reduce the severity of the error handling
 
 
