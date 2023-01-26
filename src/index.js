@@ -36,6 +36,15 @@ canvasEl.addEventListener('click', (e)=> {
     quoteInput.focus();
 })
 
+//diable enter key stroke within quoteInput 
+quoteInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        return false 
+    }
+    
+})
+
 //Event listners 
 quoteInput.addEventListener('input', (e) => {
     const quoteSpanArr = quoteDisplay.querySelectorAll(".rendered-quote")

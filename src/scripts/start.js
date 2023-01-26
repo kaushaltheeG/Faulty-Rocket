@@ -122,7 +122,7 @@ export default class Start {
         
         let arr = [], x = 0, y = 0;
         for (let i=1; i<5; i++) {
-            console.log(y)
+            
             arr.push(new MovingObjects({
                 pos: [0, y],
                 width: this.canvas.width,
@@ -132,9 +132,9 @@ export default class Start {
                 src: `./assests/start_screen/stars${i}.png`
             }));
              y = y - 700;
-            //  console.log(y)
+            
         }
-        console.log(arr)
+       
         return arr; 
     }
 

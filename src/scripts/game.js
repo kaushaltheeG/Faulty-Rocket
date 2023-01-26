@@ -9,7 +9,7 @@ export default class Game {
         this.level = new Level(level, this.ctx); 
         this.x = 0;
         this.y = 0;
-        console.log(level)
+      
         this.quote = new Quote();
         this.strikes = 0;
         this.animate()
