@@ -16,15 +16,24 @@ let errorArr = [], errorCount = 0;
 canvasEl.width = 500;
 canvasEl.height = 750; 
 let game; 
+let isEnabled = false; 
 
 
 //Start and New game 
 new Start(ctx, canvasEl);
+if (!isEnabled) {
+    quoteInput.disabled = true; 
+} else {
+    quoteInput.disabled = false; 
+}
 
 canvasEl.addEventListener('click', (e)=> {
     errorArr = [], errorCount = 0;
     if (game) game.quote.timer.endTimer();
     game = new Game(ctx, 0, canvasEl);
+    isEnabled = true; 
+    quoteInput.disabled = false; 
+    quoteInput.focus();
 })
 
 //Event listners 
