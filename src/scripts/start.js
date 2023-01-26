@@ -28,7 +28,7 @@ export default class Start {
             })
             //Display test 
             this.ctx.font = 'oblique 20px Verdana';
-            this.ctx.fillStyle = 'blue'
+            this.ctx.fillStyle = 'white'
             this.ctx.textAlign = 'center'
             if (this.sen1) this.ctx.fillText(this.sen1, 250, 50, this.canvas.width)
             if (this.sen2) this.ctx.fillText(this.sen2, 250, 80, this.canvas.width)
