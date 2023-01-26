@@ -36,13 +36,12 @@ canvasEl.addEventListener('click', (e)=> {
     quoteInput.focus();
 })
 
-//diable enter key stroke within quoteInput 
+//diable enter and capslock key stroke within quoteInput 
 quoteInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
         e.preventDefault();
         return false 
     }
-    
 })
 
 //Event listners 
@@ -90,12 +89,18 @@ function _catchErors(quoteSpan) {
     return errorArr.length; 
 }
 
+
+
 //keyboard feature 
+
+//for shift, chars, and space bar 
 keyboard.addEventListener('keydown', (e) => {
+   
     if (!e.metaKey) {
         const keyEle = e.key !== " " ? document.getElementById(`${e.key}`) : document.getElementById(`${e.code}`)
-        if (e.shiftKey) _captializeAll();
-        keyEle.classList.add('pressedKey')
+        if (e.shiftKey) _captializeAll(); 
+       
+        if (keyEle && !keyEle.classList.contains('pressedKey')) keyEle.classList.add('pressedKey'); 
     }
 })
 
@@ -103,10 +108,28 @@ keyboard.addEventListener('keyup', (e) => {
     
     if (!e.metaKey) {
         const keyEle = e.key !== " " ? document.getElementById(`${e.key}`) : document.getElementById(`${e.code}`)
-        keyEle.classList.remove('pressedKey')
         if (!e.shiftKey) _lowerAll();
+        if (keyEle && keyEle.classList.contains("pressedKey"))
+          keyEle.classList.remove("pressedKey");
     }
 })
+
+//capsLock detection 
+keyboard.addEventListener('keydown', _capsLockDetection);
+keyboard.addEventListener('keyup', _capsLockDetection)
+
+//capsLock detection helper function 
+function _capsLockDetection(e) {
+   
+    if (e.code === "CapsLock") {
+        let isCap = e.getModifierState("CapsLock"); 
+        if (isCap) {
+            return _captializeAll()
+        } else {
+            return _lowerAll()
+        }
+    }
+}
 
 function _captializeAll() {
     allLetterEles.forEach((span, i) => {
