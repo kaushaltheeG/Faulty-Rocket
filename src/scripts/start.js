@@ -17,7 +17,7 @@ export default class Start {
         this.renderInstructions();
         
     }
-
+//test 
     renderInstructions() {
         // this.timeOut = setInterval(() => {
             this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
