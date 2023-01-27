@@ -33,7 +33,7 @@ export default class TypeWritingConsole {
                 = [(totalChars/5) - errors] / time(min)
         */
         let words = (this.characterCount / 5)
-        let netWPM = Math.floor(Math.abs(words - this.errors) / this.adjTime)
+        let netWPM = Math.floor((words - this.errors) / this.adjTime)
         return netWPM;
     }
 

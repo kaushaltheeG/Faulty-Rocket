@@ -66,6 +66,10 @@ textarea {
   background-color: rgb(19, 18, 18);
 }
 
+textarea:hover {
+  cursor: none;
+}
+
 .backspace, .shift, .space {
   font-size: 1rem;
   text-transform: capitalize;

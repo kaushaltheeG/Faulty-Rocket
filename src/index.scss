@@ -67,6 +67,12 @@ textarea {
     background-color: rgb(19, 18, 18);
 }
 
+textarea:hover{
+    cursor: none;
+}
+
+
+
 .backspace, .shift, .space {
     font-size: 1rem;
     text-transform: capitalize;
@@ -94,6 +100,7 @@ textarea {
     font-size: 1.25rem;
     user-select: none;
     font-family: Arial, Helvetica, sans-serif;
+
 }
 
 .quote-input {
@@ -102,6 +109,7 @@ textarea {
     display: flex;
     justify-content: center;
     margin-bottom: 2rem;
+    
 }
 
 
@@ -129,6 +137,7 @@ textarea {
 .correct {
     color: rgb(7, 243, 7);
     font-weight: 700;
+ 
 }
 
 .incorrect {
@@ -136,6 +145,7 @@ textarea {
     font-size: x-large;
     font-weight: 900;
     text-decoration: underline;
+   
 }
 
 .app {

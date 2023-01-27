@@ -12,7 +12,7 @@ const allLetterEles = document.querySelectorAll('.letter');
 const inputDisplayDiv = document.querySelector("#input-display");
 const canvasEl = document.getElementById("rocket-canvas");
 const ctx = canvasEl.getContext("2d");
-let errorArr = [], errorCount = 0;
+let errorArr = [], errorCount = 0; 
 canvasEl.width = 500;
 canvasEl.height = 750; 
 let game; 
@@ -34,6 +34,7 @@ canvasEl.addEventListener('click', (e)=> {
     isEnabled = true; 
     quoteInput.disabled = false; 
     quoteInput.focus();
+    
 })
 
 //diable enter and capslock key stroke within quoteInput 
@@ -46,40 +47,62 @@ quoteInput.addEventListener('keypress', (e) => {
 
 //Event listners 
 quoteInput.addEventListener('input', (e) => {
-    const quoteSpanArr = quoteDisplay.querySelectorAll(".rendered-quote")
-    const inputValArr = quoteInput.value.split('')
-    let finished = true, caughtErrors = 0; 
-    quoteSpanArr.forEach((charSpan, i) => {
-        const inputChar = inputValArr[i];
-        if (inputChar == null) {
-            charSpan.classList.remove('correct');
-            charSpan.classList.remove('incorrect');
-            finished = false; 
-        } else if (inputChar === charSpan.innerHTML) {
-            charSpan.classList.add('correct');
-            charSpan.classList.remove('incorrect')
-            finished = true; 
-        } else {
-            charSpan.classList.remove('correct');
-            charSpan.classList.add('incorrect');
-            finished = false; 
-            caughtErrors = _catchErors(quoteSpanArr);
-            if (errorCount < caughtErrors) errorCount = caughtErrors;
-        }
-    })
+  //retrived the quote dipalye inner spans
+  const quoteSpanArr = quoteDisplay.querySelectorAll(".rendered-quote");
+  //retrived the user input value
+  const inputValArr = quoteInput.value.split("");
+  
+  //error count 
+  let caughtErrors = 0; 
+  //user input and quote lenght to determine if user finished 
+  let userInputCount = inputValArr.length,
+    quoteCharCount = quoteSpanArr.length;
+
+  // checks wheater or not to append the correct or incorrect class
+  quoteSpanArr.forEach((charSpan, i) => {
+    const inputChar = inputValArr[i];
+    if (inputChar == null) {
+      charSpan.classList.remove("correct");
+      charSpan.classList.remove("incorrect");
     
-    if (finished) {
-        const twc = new TypeWritingConsole(game.quote.charCount, game.quote.timer.pastTime, errorCount, ctx, game.level)
-        twc.rocket.animate(() => {
-            errorArr = [];
-            errorCount = 0; 
-            if (twc.rocket.passedLevel) {
-                game.newLevel();
-            } else {
-                game.failedLevel();
-            }
-        });
+    } else if (inputChar === charSpan.innerHTML) {
+      charSpan.classList.add("correct");
+      charSpan.classList.remove("incorrect");
+ 
+    } else {
+      charSpan.classList.remove("correct");
+      charSpan.classList.add("incorrect");
+   
+      caughtErrors = _catchErors(quoteSpanArr);
+      if (errorCount < caughtErrors) errorCount = caughtErrors;
     }
+  });
+
+  
+  if (userInputCount === quoteCharCount) {
+    //uncorrected errors ~ is more forgiving error detection  
+            //errorCount ~ less forgiving count caches the error; does not care if error is fixed or not
+    let uncorrectedCount = 0;
+    quoteSpanArr.forEach((charSpan) => {if (charSpan.classList.contains("incorrect")) uncorrectedCount++;}); // 
+    
+
+    const twc = new TypeWritingConsole(
+      game.quote.charCount,
+      game.quote.timer.pastTime,
+      uncorrectedCount,
+      ctx,
+      game.level
+    );
+    twc.rocket.animate(() => {
+      errorArr = [];
+      errorCount = 0;
+      if (twc.rocket.passedLevel) {
+        game.newLevel();
+      } else {
+        game.failedLevel();
+      }
+    });
+  }
 })
 
 function _catchErors(quoteSpan) {

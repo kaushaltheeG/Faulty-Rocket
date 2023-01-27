@@ -7,6 +7,7 @@ export default class Quote {
         this.charCount = 0;
         this.renderNewQuote();
         this.timer = new Timer();
+        
 
     }
 
@@ -16,6 +17,7 @@ export default class Quote {
             if (res.ok) {
                 let data = await res.json();
                 // console.log(data.content)
+                
                 return data.content;
             } else {
                 let data = await res.join();
@@ -23,13 +25,14 @@ export default class Quote {
             }
         } catch (error) {
             console.error(error);
+            console.error('refresh to get new quote!!!')
         }
     }
 
     async renderNewQuote() {
         this.quoteInput = document.getElementById("quote-input")
         const quote = await this.getRandomQuote();
-       
+       this.fetchedQuote = quote; 
         quoteDisplay.innerHTML = "";
         this.quoteInput.value = null;
         
